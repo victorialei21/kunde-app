@@ -1,19 +1,28 @@
 import React from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, View } from 'react-native';
+
+import DefaultText from '../components/DefaultText';
 
 const DefaultButton = (props) => {
 	return (
-		<Button style={styles.button} title={props.title} onPress={props.onPress} />
+		<TouchableOpacity style={styles.button} onPress={props.onPress}>
+			<View style={styles.textContainer}>
+				<DefaultText>{props.title}</DefaultText>
+			</View>
+		</TouchableOpacity>
 	);
 };
 
 const styles = StyleSheet.create({
 	button: {
-		fontFamily: 'rubik-regular',
-		fontSize: 15,
+		padding: 5,
 		borderRadius: 10,
-		backgroundColor: '#fff9e9',
-		borderWidth: 2,
+		backgroundColor: '#24d6d2',
+		borderWidth: 1,
+	},
+	textContainer: {
+		alignContent: 'center',
+		padding: 5,
 	},
 });
 
