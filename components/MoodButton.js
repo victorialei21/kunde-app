@@ -11,7 +11,7 @@ const MoodButton = (props) => {
 		return (
 			<TouchableOpacity style={styles.button} onPress={props.onPress}>
 				<View style={styles.textContainer}>
-					<MaterialIcons name={props.name} size={53} />
+					<MaterialIcons name={props.name} size={43} />
 				</View>
 			</TouchableOpacity>
 		);
@@ -23,7 +23,7 @@ const MoodButton = (props) => {
 		return (
 			<TouchableOpacity style={styles.button} onPress={props.onPress}>
 				<View style={styles.textContainer}>
-					<Entypo name={props.name} size={50} />
+					<Entypo name={props.name} size={40} />
 				</View>
 			</TouchableOpacity>
 		);
@@ -31,7 +31,7 @@ const MoodButton = (props) => {
 		return (
 			<TouchableOpacity style={styles.button} onPress={props.onPress}>
 				<View style={styles.textContainer}>
-					<MaterialCommunityIcons name={props.name} size={53} />
+					<MaterialCommunityIcons name={props.name} size={43} />
 				</View>
 			</TouchableOpacity>
 		);
