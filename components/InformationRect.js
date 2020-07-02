@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DefaultText from './DefaultText';
 
 const InformationRect = (props) => {
-	if (props.touchable === true) {
+	if (props.journal === true) {
 		return (
 			<TouchableOpacity style={styles.infoItem} onPress={props.onSelect}>
 				<View style={styles.headerContainer}>
 					<Text style={styles.header}>{props.header}</Text>
 				</View>
 				<View style={{ alignSelf: 'center' }}>
-					<DefaultText>{props.content}</DefaultText>
+					<DefaultText>Today's Prompt: {props.content}</DefaultText>
 				</View>
 			</TouchableOpacity>
 		);
@@ -21,7 +21,7 @@ const InformationRect = (props) => {
 					<Text style={styles.header}>{props.header}</Text>
 				</View>
 				<View style={{ alignSelf: 'center' }}>
-					<DefaultText>{props.content}</DefaultText>
+					<DefaultText>"{props.content}"</DefaultText>
 				</View>
 			</View>
 		);

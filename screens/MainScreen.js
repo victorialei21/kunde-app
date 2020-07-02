@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import InformationRect from '../components/InformationRect';
 import InformationBox from '../components/InformationBox';
-import { AFFIRMATIONS } from '../data/dummy-data';
+import { AFFIRMATIONS, PROMPTS } from '../data/dummy-data';
 
 const MainScreen = (props) => {
 	return (
@@ -46,11 +46,9 @@ const MainScreen = (props) => {
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
-						touchable={true}
+						journal={true}
 						header={'Start Your Journal Entry'}
-						content={
-							'filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler'
-						}
+						content={PROMPTS[5]}
 						onSelect={() => {
 							props.navigation.navigate('Journal');
 						}}

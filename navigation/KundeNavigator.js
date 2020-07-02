@@ -10,6 +10,7 @@ import MainScreen from '../screens/MainScreen';
 import MoodTrackerScreen from '../screens/MoodTrackerScreen';
 import PillReminderScreen from '../screens/PillReminderScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import PastJournalEntriesScreen from '../screens/PastJournalEntriesScreen';
 import Colors from '../constants/Colors';
 import DefaultText from '../components/DefaultText';
 
@@ -92,6 +93,11 @@ function JournalStackScreen() {
 				options={{
 					title: 'Daily Journal',
 				}}
+			/>
+			<JournalStack.Screen
+				name='PastJournal'
+				component={PastJournalEntriesScreen}
+				options={{ title: 'Past Journal Entries' }}
 			/>
 		</JournalStack.Navigator>
 	);
