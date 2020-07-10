@@ -15,8 +15,8 @@ const DefaultButton = (props) => {
 
 const styles = StyleSheet.create({
 	button: {
-		padding: 5,
-		borderRadius: 10,
+		padding: 3,
+		borderRadius: 25,
 		backgroundColor: '#24d6d2',
 		borderWidth: 1,
 	},

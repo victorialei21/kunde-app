@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -11,8 +11,8 @@ import MoodTrackerScreen from '../screens/MoodTrackerScreen';
 import PillReminderScreen from '../screens/PillReminderScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PastJournalEntriesScreen from '../screens/PastJournalEntriesScreen';
-import Colors from '../constants/Colors';
-import DefaultText from '../components/DefaultText';
+import AddNewPillScreen from '../screens/AddNewPillScreen';
+import DefaultButton from '../components/DefaultButton';
 
 const MainStack = createStackNavigator();
 
@@ -48,9 +48,23 @@ function PillStackScreen() {
 			<PillStack.Screen
 				name='Pills'
 				component={PillReminderScreen}
-				options={{
+				options={({ navigation }) => ({
 					title: 'Pill Reminders',
-				}}
+					headerRight: () => (
+						<DefaultButton
+							onPress={() => navigation.navigate('Add Pill')}
+							title='Add Pill'
+						/>
+					),
+					headerRightContainerStyle: { padding: 20 },
+				})}
+			/>
+			<PillStack.Screen
+				name='Add Pill'
+				component={AddNewPillScreen}
+				options={({ navigation }) => ({
+					title: 'Add New Pill',
+				})}
 			/>
 		</PillStack.Navigator>
 	);

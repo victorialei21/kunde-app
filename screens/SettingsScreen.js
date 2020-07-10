@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
 	switchContainer: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		width: '80%',
 		marginTop: 20,
 		borderWidth: 1,
