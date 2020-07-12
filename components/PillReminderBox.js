@@ -8,7 +8,10 @@ const PillReminderBox = (props) => {
 	return (
 		<View style={styles.pillBox}>
 			<View style={styles.pillItem}>
-				<DefaultText>{props.title}</DefaultText>
+				<DefaultText style={{ fontFamily: 'rubik-medium' }}>
+					{props.title} {`(${props.quantity})`}
+				</DefaultText>
+				<DefaultText>{props.time}</DefaultText>
 			</View>
 			<CheckBox />
 		</View>
@@ -17,16 +20,19 @@ const PillReminderBox = (props) => {
 
 const styles = StyleSheet.create({
 	pillBox: {
-		borderWidth: 2,
-		padding: 5,
-		margin: 10,
-		borderRadius: 10,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		width: 200,
+		width: '80%',
+		margin: 10,
+		borderWidth: 2,
+		borderRadius: 10,
+		padding: 15,
 	},
-	pillItem: {},
+	pillItem: {
+		flexDirection: 'column',
+		alignItems: 'flex-start',
+	},
 	checkbox: {},
 });
 

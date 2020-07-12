@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import InformationRect from '../components/InformationRect';
 import InformationBox from '../components/InformationBox';
 import { AFFIRMATIONS, PROMPTS } from '../data/dummy-data';
+import DateText from '../components/DateText';
 
 const MainScreen = (props) => {
 	return (
@@ -16,12 +17,11 @@ const MainScreen = (props) => {
 					<InformationRect
 						header={'Affirmation of the Day'}
 						content={AFFIRMATIONS[0]}
+						affirmation={true}
 					/>
 					<InformationRect
 						header={"Today's Information"}
-						content={
-							'filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler'
-						}
+						content={<DateText style={{ fontSize: 15 }} />}
 					/>
 				</View>
 				<View style={styles.pillMoodContainer}>
@@ -74,21 +74,21 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 30,
 		fontFamily: 'rubik-medium',
-		textAlign: 'center',
 	},
 	titleContainer: {
-		alignContent: 'flex-start',
 		paddingHorizontal: 10,
 		paddingTop: 20,
 	},
 	rectContainer: {
 		paddingHorizontal: 20,
 		paddingVertical: 5,
+		width: '98%',
+		alignItems: 'center',
 	},
 	pillMoodContainer: {
 		flexDirection: 'row',
 		paddingHorizontal: 20,
-		alignContent: 'center',
+		alignItems: 'center',
 	},
 });
 

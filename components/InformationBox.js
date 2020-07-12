@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
 import DefaultText from './DefaultText';
 
 const InformationBox = (props) => {
 	return (
-		<TouchableOpacity style={styles.infoItem} onPress={props.onSelect}>
+		<TouchableOpacity
+			style={{ ...styles.infoItem, ...props.style }}
+			onPress={props.onSelect}
+		>
 			<View style={styles.headerContainer}>
 				<Text style={styles.header}>{props.header}</Text>
 			</View>
@@ -18,15 +22,12 @@ const InformationBox = (props) => {
 const styles = StyleSheet.create({
 	infoItem: {
 		flex: 1,
-		margin: 5,
+		margin: 10,
 		paddingVertical: 10,
-		height: '90%',
+		height: '85%',
 		borderWidth: 2,
 		borderRadius: 10,
-		overflow: 'hidden',
-		//backgroundColor: '41e7ec'
 		backgroundColor: '#FFB97C',
-		//elevation: 5,
 	},
 	contentContainer: {
 		paddingVertical: 5,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		fontFamily: 'rubik-medium',
-		fontSize: 18,
+		fontSize: 20,
 		paddingTop: 5,
 	},
 	headerContainer: {

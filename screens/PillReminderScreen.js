@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 
-import DefaultText from '../components/DefaultText';
 import PillReminderBox from '../components/PillReminderBox';
 import DateText from '../components/DateText';
+import { PILLS } from '../data/dummy-data';
 
 const PillReminderScreen = (props) => {
-	const goToAddNewPill = () => {
-		props.navigation.navigate('Add Pill');
-	};
-
 	return (
 		<View style={styles.screen}>
 			<View style={styles.titleContainer}>
 				<DateText />
 			</View>
-			<FlatList renderItem={(itemData) => <PillReminderBox />} />
+			<SafeAreaView style={styles.listContainer}>
+				<FlatList
+					data={PILLS}
+					renderItem={({ item }) => (
+						<View>
+							<PillReminderBox
+								title={item.title}
+								time={item.time}
+								quantity={item.quantity}
+							/>
+						</View>
+					)}
+					keyExtractor={(item) => item.id}
+				/>
+			</SafeAreaView>
 		</View>
 	);
 };
@@ -23,19 +33,23 @@ const PillReminderScreen = (props) => {
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		justifyContent: 'center',
 		alignItems: 'center',
+		justifyContent: 'flex-start',
 		backgroundColor: '#fff9e9',
 	},
 	titleContainer: {
-		width: '85%',
-		paddingTop: 40,
-		flexDirection: 'row',
-		justifyContent: 'center',
+		paddingTop: 30,
+		paddingBottom: 20,
 	},
 	title: {
 		fontFamily: 'rubik-medium',
 		fontSize: 20,
+	},
+	listContainer: {
+		flex: 1,
+		flexDirection: 'column',
+		width: '85%',
+		alignItems: 'center',
 	},
 });
 

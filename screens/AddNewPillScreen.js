@@ -3,9 +3,10 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	TextInput,
 	TouchableWithoutFeedback,
 	Keyboard,
+	KeyboardAvoidingView,
+	ScrollView,
 } from 'react-native';
 
 import DefaultButton from '../components/DefaultButton';
@@ -28,7 +29,7 @@ const AddNewPillScreen = (props) => {
 				Keyboard.dismiss();
 			}}
 		>
-			<View style={styles.screen}>
+			<KeyboardAvoidingView style={styles.screen} behavior='height'>
 				<Text style={styles.title}>Please Enter Pill Details</Text>
 				<View style={styles.inputContainer}>
 					<PillTextInput title='Name' />
@@ -40,7 +41,7 @@ const AddNewPillScreen = (props) => {
 				<View style={styles.saveButton}>
 					<DefaultButton title='Save' onPress={addPillHandler} />
 				</View>
-			</View>
+			</KeyboardAvoidingView>
 		</TouchableWithoutFeedback>
 	);
 };

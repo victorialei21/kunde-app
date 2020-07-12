@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, View } from 'react-native';
 
-import DefaultText from '../components/DefaultText';
+import DefaultText from './DefaultText';
 
 const DefaultButton = (props) => {
 	return (

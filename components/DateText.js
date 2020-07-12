@@ -68,7 +68,7 @@ const DateText = (props) => {
 	}
 	const dateText = day + ', ' + month + ' ' + date + ', ' + year;
 
-	return <Text style={styles.text}>{dateText}</Text>;
+	return <Text style={{ ...styles.text, ...props.style }}>{dateText}</Text>;
 };
 
 const styles = StyleSheet.create({

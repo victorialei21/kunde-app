@@ -41,3 +41,42 @@ export const PROMPTS = [
 	'If you could have a book with all the answers, would you read it? Why or why not?',
 	'What goal are you working on right now?',
 ];
+
+export const PILLS = [
+	{
+		id: '10x10',
+		title: 'Alprazolam',
+		time: '9:00 AM',
+		quantity: 2,
+	},
+	{
+		id: '123nwef',
+		title: 'Amoxicillin',
+		time: '11:00 AM',
+		quantity: 1,
+	},
+	{
+		id: '13',
+		title: 'random pill name',
+		time: '6:00 PM',
+		quantity: 2,
+	},
+	{
+		id: '132',
+		title: 'Amoxicillin',
+		time: '9:00 AM',
+		quantity: 3,
+	},
+	{
+		id: '312',
+		title: 'Amoxicillin',
+		time: '9:00 AM',
+		quantity: 2,
+	},
+	{
+		id: 'fa',
+		title: 'Amoxicillin',
+		time: '9:00 AM',
+		quantity: 2,
+	},
+];

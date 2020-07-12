@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
+
 import DefaultText from './DefaultText';
 
 const PillTextInput = (props) => {
