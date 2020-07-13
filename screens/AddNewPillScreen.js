@@ -6,12 +6,12 @@ import {
 	TouchableWithoutFeedback,
 	Keyboard,
 	KeyboardAvoidingView,
-	ScrollView,
 } from 'react-native';
 
 import DefaultButton from '../components/DefaultButton';
 import DefaultText from '../components/DefaultText';
 import PillTextInput from '../components/PillTextInput';
+import Colors from '../constants/Colors';
 
 const AddNewPillScreen = (props) => {
 	const [pillReminders, setPillReminders] = useState([]);
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 	title: {
 		fontFamily: 'rubik-medium',

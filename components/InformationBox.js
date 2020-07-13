@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import DefaultText from './DefaultText';
+import Colors from '../constants/Colors';
 
 const InformationBox = (props) => {
 	return (
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
 		height: '85%',
 		borderWidth: 2,
 		borderRadius: 10,
-		backgroundColor: '#FFB97C',
+		backgroundColor: Colors.orange,
 	},
 	contentContainer: {
 		paddingVertical: 5,

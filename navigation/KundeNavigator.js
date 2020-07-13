@@ -13,6 +13,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 import PastJournalEntriesScreen from '../screens/PastJournalEntriesScreen';
 import AddNewPillScreen from '../screens/AddNewPillScreen';
 import DefaultButton from '../components/DefaultButton';
+import Colors from '../constants/Colors';
 
 const MainStack = createStackNavigator();
 
@@ -21,7 +22,7 @@ function MainStackScreen() {
 		<MainStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: '#f5ca56' },
+				headerStyle: { backgroundColor: Colors.yellow },
 			}}
 		>
 			<MainStack.Screen
@@ -42,7 +43,7 @@ function PillStackScreen() {
 		<PillStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: '#f5ca56' },
+				headerStyle: { backgroundColor: Colors.yellow },
 			}}
 		>
 			<PillStack.Screen
@@ -77,7 +78,7 @@ function MoodStackScreen() {
 		<MoodStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: '#f5ca56' },
+				headerStyle: { backgroundColor: Colors.yellow },
 			}}
 		>
 			<MoodStack.Screen
@@ -98,7 +99,7 @@ function JournalStackScreen() {
 		<JournalStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: '#f5ca56' },
+				headerStyle: { backgroundColor: Colors.yellow },
 			}}
 		>
 			<JournalStack.Screen
@@ -124,7 +125,7 @@ function SettingsStackScreen() {
 		<SettingsStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: '#f5ca56' },
+				headerStyle: { backgroundColor: Colors.yellow },
 			}}
 		>
 			<SettingsStack.Screen
@@ -146,7 +147,7 @@ function KundeNavigator() {
 			<Tab.Navigator
 				shifting={true}
 				activeColor={'black'}
-				barStyle={{ backgroundColor: '#f5ca56' }}
+				barStyle={{ backgroundColor: Colors.yellow }}
 			>
 				<Tab.Screen
 					name='Home'

@@ -5,6 +5,7 @@ import { LineChart } from 'react-native-chart-kit';
 import MoodButton from '../components/MoodButton';
 import DefaultText from '../components/DefaultText';
 import DefaultButton from '../components/DefaultButton';
+import Colors from '../constants/Colors';
 
 const MoodTrackerScreen = (props) => {
 	const [mood, setMood] = useState(0);
@@ -52,27 +53,37 @@ const MoodTrackerScreen = (props) => {
 					<MoodButton
 						name='emoticon-angry-outline'
 						onPress={() => moodHandler(1)}
-						style={{ backgroundColor: mood === 1 ? '#f5ca56' : '#fff9e9' }}
+						style={{
+							backgroundColor: mood === 1 ? Colors.yellow : Colors.background,
+						}}
 					/>
 					<MoodButton
 						name='emoji-sad'
 						onPress={() => moodHandler(2)}
-						style={{ backgroundColor: mood === 2 ? '#f5ca56' : '#fff9e9' }}
+						style={{
+							backgroundColor: mood === 2 ? Colors.yellow : Colors.background,
+						}}
 					/>
 					<MoodButton
 						name='emoji-neutral'
 						onPress={() => moodHandler(3)}
-						style={{ backgroundColor: mood === 3 ? '#f5ca56' : '#fff9e9' }}
+						style={{
+							backgroundColor: mood === 3 ? Colors.yellow : Colors.background,
+						}}
 					/>
 					<MoodButton
 						name='emoji-happy'
 						onPress={() => moodHandler(4)}
-						style={{ backgroundColor: mood === 4 ? '#f5ca56' : '#fff9e9' }}
+						style={{
+							backgroundColor: mood === 4 ? Colors.yellow : Colors.background,
+						}}
 					/>
 					<MoodButton
 						name='tag-faces'
 						onPress={() => moodHandler(5)}
-						style={{ backgroundColor: mood === 5 ? '#f5ca56' : '#fff9e9' }}
+						style={{
+							backgroundColor: mood === 5 ? Colors.yellow : Colors.background,
+						}}
 					/>
 				</View>
 				<View style={styles.scaleContainer}>
@@ -136,7 +147,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 	title: {
 		fontFamily: 'rubik-medium',

@@ -5,6 +5,8 @@ import InformationRect from '../components/InformationRect';
 import InformationBox from '../components/InformationBox';
 import { AFFIRMATIONS, PROMPTS } from '../data/dummy-data';
 import DateText from '../components/DateText';
+import DefaultText from '../components/DefaultText';
+import Colors from '../constants/Colors';
 
 const MainScreen = (props) => {
 	return (
@@ -47,11 +49,17 @@ const MainScreen = (props) => {
 				<View style={styles.rectContainer}>
 					<InformationRect
 						journal={true}
-						header={'Start Your Journal Entry'}
-						content={PROMPTS[5]}
+						header={"Today's Prompt"}
+						content={<DefaultText>{PROMPTS[5]}</DefaultText>}
 						onSelect={() => {
 							props.navigation.navigate('Journal');
 						}}
+					/>
+				</View>
+				<View style={styles.rectContainer}>
+					<InformationRect
+						kunde={true}
+						header={'Learn More about Kunde Social Cafe!'}
 					/>
 				</View>
 			</View>
@@ -59,17 +67,13 @@ const MainScreen = (props) => {
 	);
 };
 
-// MainScreen.navigationOptions = (navData) => {return (
-// 	headerLeft:
-// )};
-
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 	title: {
 		fontSize: 30,

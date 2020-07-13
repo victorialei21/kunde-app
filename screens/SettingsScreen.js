@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 
 import DefaultText from '../components/DefaultText';
+import Colors from '../constants/Colors';
 
 const SettingSwitch = (props) => {
 	return (
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 	switchContainer: {
 		flexDirection: 'row',

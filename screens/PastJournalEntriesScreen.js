@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import Colors from '../constants/Colors';
+
 const PastJournalEntriesScreen = (props) => {
 	return (
 		<View style={styles.screen}>
@@ -14,7 +16,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 });
 

@@ -12,6 +12,7 @@ import {
 import DefaultButton from '../components/DefaultButton';
 import DefaultText from '../components/DefaultText';
 import { PROMPTS } from '../data/dummy-data';
+import Colors from '../constants/Colors';
 
 const JournalScreen = (props) => {
 	const [journalInput, setJournalInput] = useState('');
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 	title: {
 		fontFamily: 'rubik-medium',
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
 		padding: 15,
 		width: '80%',
 		marginVertical: 20,
-		backgroundColor: '#FFB97C',
+		backgroundColor: Colors.orange,
 	},
 	input: { fontFamily: 'rubik-regular' },
 	inputContainer: {

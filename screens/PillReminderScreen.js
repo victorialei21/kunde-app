@@ -4,6 +4,7 @@ import { View, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import PillReminderBox from '../components/PillReminderBox';
 import DateText from '../components/DateText';
 import { PILLS } from '../data/dummy-data';
+import Colors from '../constants/Colors';
 
 const PillReminderScreen = (props) => {
 	return (
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
-		backgroundColor: '#fff9e9',
+		backgroundColor: Colors.background,
 	},
 	titleContainer: {
 		paddingTop: 30,
