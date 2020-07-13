@@ -7,7 +7,7 @@ import DefaultText from '../components/DefaultText';
 import DefaultButton from '../components/DefaultButton';
 
 const MoodTrackerScreen = (props) => {
-	const [mood, setMood] = useState('');
+	const [mood, setMood] = useState(0);
 
 	const moodSubmitAlert = () => {
 		const currentTime = new Date();
@@ -27,6 +27,11 @@ const MoodTrackerScreen = (props) => {
 				minutesWithZeroes(currentTime)
 		);
 	};
+
+	const moodHandler = (value) => {
+		setMood(value);
+	};
+
 	const line = {
 		labels: ['January', 'February', 'March', 'April', 'May', 'June'],
 		datasets: [
@@ -44,16 +49,38 @@ const MoodTrackerScreen = (props) => {
 			</View>
 			<View style={styles.buttonsScaleContainer}>
 				<View style={styles.buttonsContainer}>
-					<MoodButton name='emoticon-angry-outline' value={1} />
-					<MoodButton name='emoji-sad' value={2} />
-					<MoodButton name='emoji-neutral' value={3} />
-					<MoodButton name='emoji-happy' value={4} />
-					<MoodButton name='tag-faces' value={5} />
+					<MoodButton
+						name='emoticon-angry-outline'
+						onPress={() => moodHandler(1)}
+						style={{ backgroundColor: mood === 1 ? '#f5ca56' : '#fff9e9' }}
+					/>
+					<MoodButton
+						name='emoji-sad'
+						onPress={() => moodHandler(2)}
+						style={{ backgroundColor: mood === 2 ? '#f5ca56' : '#fff9e9' }}
+					/>
+					<MoodButton
+						name='emoji-neutral'
+						onPress={() => moodHandler(3)}
+						style={{ backgroundColor: mood === 3 ? '#f5ca56' : '#fff9e9' }}
+					/>
+					<MoodButton
+						name='emoji-happy'
+						onPress={() => moodHandler(4)}
+						style={{ backgroundColor: mood === 4 ? '#f5ca56' : '#fff9e9' }}
+					/>
+					<MoodButton
+						name='tag-faces'
+						onPress={() => moodHandler(5)}
+						style={{ backgroundColor: mood === 5 ? '#f5ca56' : '#fff9e9' }}
+					/>
 				</View>
 				<View style={styles.scaleContainer}>
-					<DefaultText style={styles.scaleText}>
-						{''}1{'      '}2{'      '}3{'      '}4{'      '}5
-					</DefaultText>
+					<DefaultText style={styles.scaleText}>1</DefaultText>
+					<DefaultText style={styles.scaleText}>2</DefaultText>
+					<DefaultText style={styles.scaleText}>3</DefaultText>
+					<DefaultText style={styles.scaleText}>4</DefaultText>
+					<DefaultText style={styles.scaleText}>5</DefaultText>
 				</View>
 			</View>
 			<View style={styles.buttonContainer}>
@@ -118,12 +145,13 @@ const styles = StyleSheet.create({
 	buttonsContainer: {
 		flexDirection: 'row',
 		padding: 10,
-		paddingHorizontal: 10,
-		alignItems: 'flex-start',
 		justifyContent: 'center',
 	},
 	scaleContainer: {
-		alignItems: 'center',
+		flexDirection: 'row',
+		paddingHorizontal: 10,
+		width: '85%',
+		justifyContent: 'space-between',
 	},
 	scaleText: {
 		fontSize: 30,
@@ -136,6 +164,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 15,
 		borderRadius: 10,
 		width: Dimensions.get('window').width * 0.85,
+		alignItems: 'center',
 	},
 	chartContainer: {
 		flexDirection: 'column',

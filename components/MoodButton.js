@@ -9,7 +9,11 @@ import {
 const MoodButton = (props) => {
 	if (props.name === 'tag-faces') {
 		return (
-			<TouchableOpacity style={styles.button} onPress={props.onPress}>
+			<TouchableOpacity
+				style={{ ...styles.button, ...props.style }}
+				onPress={props.onPress}
+				updateColor={props.updateColor}
+			>
 				<View style={styles.textContainer}>
 					<MaterialIcons name={props.name} size={43} />
 				</View>
@@ -21,7 +25,11 @@ const MoodButton = (props) => {
 		props.name === 'emoji-sad'
 	) {
 		return (
-			<TouchableOpacity style={styles.button} onPress={props.onPress}>
+			<TouchableOpacity
+				style={{ ...styles.button, ...props.style }}
+				onPress={props.onPress}
+				updateColor={props.updateColor}
+			>
 				<View style={styles.textContainer}>
 					<Entypo name={props.name} size={40} />
 				</View>
@@ -29,7 +37,11 @@ const MoodButton = (props) => {
 		);
 	} else {
 		return (
-			<TouchableOpacity style={styles.button} onPress={props.onPress}>
+			<TouchableOpacity
+				style={{ ...styles.button, ...props.style }}
+				onPress={props.onPress}
+				updateColor={props.updateColor}
+			>
 				<View style={styles.textContainer}>
 					<MaterialCommunityIcons name={props.name} size={43} />
 				</View>
@@ -40,7 +52,8 @@ const MoodButton = (props) => {
 
 const styles = StyleSheet.create({
 	button: {
-		padding: 5,
+		padding: 6,
+		borderRadius: 35,
 	},
 	textContainer: {
 		alignContent: 'center',
