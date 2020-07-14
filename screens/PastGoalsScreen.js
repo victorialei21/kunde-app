@@ -3,10 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 
-const PastJournalEntriesScreen = (props) => {
+const PastGoalsScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<Text>Past Journal Screen</Text>
+			<Text>Past Goals Screen</Text>
 		</View>
 	);
 };
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default PastJournalEntriesScreen;
+export default PastGoalsScreen;

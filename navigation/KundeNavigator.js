@@ -5,12 +5,12 @@ import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-import JournalScreen from '../screens/JournalScreen';
+import GoalsScreen from '../screens/GoalsScreen';
 import MainScreen from '../screens/MainScreen';
 import MoodTrackerScreen from '../screens/MoodTrackerScreen';
 import PillReminderScreen from '../screens/PillReminderScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import PastJournalEntriesScreen from '../screens/PastJournalEntriesScreen';
+import PastGoalsScreen from '../screens/PastGoalsScreen';
 import AddNewPillScreen from '../screens/AddNewPillScreen';
 import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
@@ -92,29 +92,29 @@ function MoodStackScreen() {
 	);
 }
 
-const JournalStack = createStackNavigator();
+const GoalsStack = createStackNavigator();
 
-function JournalStackScreen() {
+function GoalsStackScreen() {
 	return (
-		<JournalStack.Navigator
+		<GoalsStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
 				headerStyle: { backgroundColor: Colors.yellow },
 			}}
 		>
-			<JournalStack.Screen
-				name='Journal'
-				component={JournalScreen}
+			<GoalsStack.Screen
+				name='Goals'
+				component={GoalsScreen}
 				options={{
-					title: 'Daily Journal',
+					title: 'Daily Goals',
 				}}
 			/>
-			<JournalStack.Screen
-				name='PastJournal'
-				component={PastJournalEntriesScreen}
-				options={{ title: 'Past Journal Entries' }}
+			<GoalsStack.Screen
+				name='Past Goals'
+				component={PastGoalsScreen}
+				options={{ title: 'Past Goals' }}
 			/>
-		</JournalStack.Navigator>
+		</GoalsStack.Navigator>
 	);
 }
 
@@ -188,12 +188,16 @@ function KundeNavigator() {
 					}}
 				/>
 				<Tab.Screen
-					name='Journal'
-					component={JournalStackScreen}
+					name='Goals'
+					component={GoalsStackScreen}
 					options={{
-						tabBarLabel: 'Journal',
+						tabBarLabel: 'Goals',
 						tabBarIcon: (tabInfo) => (
-							<MaterialCommunityIcons name='pencil' color={'black'} size={25} />
+							<MaterialCommunityIcons
+								name='check-bold'
+								color={'black'}
+								size={25}
+							/>
 						),
 					}}
 				/>

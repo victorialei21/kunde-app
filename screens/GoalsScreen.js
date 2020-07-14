@@ -11,10 +11,9 @@ import {
 
 import DefaultButton from '../components/DefaultButton';
 import DefaultText from '../components/DefaultText';
-import { PROMPTS } from '../data/dummy-data';
 import Colors from '../constants/Colors';
 
-const JournalScreen = (props) => {
+const GoalsScreen = (props) => {
 	const [journalInput, setJournalInput] = useState('');
 
 	const journalInputHandler = (enteredText) => {
@@ -51,7 +50,7 @@ const JournalScreen = (props) => {
 	};
 
 	const goToPastEntries = () => {
-		props.navigation.navigate('PastJournal');
+		props.navigation.navigate('Past Goals');
 	};
 
 	return (
@@ -61,9 +60,9 @@ const JournalScreen = (props) => {
 			}}
 		>
 			<View style={styles.screen}>
-				<Text style={styles.title}>Journal Prompt of the Day: </Text>
+				<Text style={styles.title}>Goals of the Day</Text>
 				<View style={styles.prompt}>
-					<DefaultText>{PROMPTS[0]}</DefaultText>
+					<DefaultText>Placeholder</DefaultText>
 				</View>
 				<View style={styles.inputContainer}>
 					<TextInput
@@ -74,14 +73,7 @@ const JournalScreen = (props) => {
 						value={journalInput}
 					/>
 				</View>
-				<View style={styles.entryButtons}>
-					<DefaultButton title={'Cancel Entry'} onPress={cancelEntry} />
-					<DefaultButton title={'Submit Entry'} onPress={submitEntry} />
-				</View>
-				<DefaultButton
-					title={'Past Journal Entries'}
-					onPress={goToPastEntries}
-				/>
+				<DefaultButton title={'Completed Goals'} onPress={goToPastEntries} />
 			</View>
 		</TouchableWithoutFeedback>
 	);
@@ -126,4 +118,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default JournalScreen;
+export default GoalsScreen;

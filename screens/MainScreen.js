@@ -44,11 +44,11 @@ const MainScreen = (props) => {
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
-						journal={true}
-						header={"Today's Prompt"}
-						content={<DefaultText>{PROMPTS[5]}</DefaultText>}
+						goals={true}
+						header={"Today's Goals"}
+						content={<DefaultText>Placeholder</DefaultText>}
 						onSelect={() => {
-							props.navigation.navigate('Journal');
+							props.navigation.navigate('Goals');
 						}}
 					/>
 				</View>

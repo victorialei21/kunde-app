@@ -22,26 +22,6 @@ export const AFFIRMATIONS = [
 	'I am happy',
 ];
 
-export const PROMPTS = [
-	'How often do you take risks?',
-	'Write about your happiest memory.',
-	'What is your favorite thing about being male or female?',
-	'Who is your favorite president? What do you admire about him?',
-	'How long do you think it will be before we see a female president?',
-	'Do you think it’s important to be a part of a community? Why or why not?',
-	'Write a thank-you note to someone who has made a difference in your life.',
-	'What piece of modern technology are you most grateful to have?',
-	'What would your life today be like without the Internet?',
-	'Do you feel anonymous online? Why or why not?',
-	'Do you prefer to binge-watch TV or keep up week-to-week? Why or why not?',
-	'Write about your writing habits and what they say about you.',
-	'What is something you’ve always wanted to try but have never gotten around to?',
-	'Can money buy happiness?',
-	'Write about a time when you had a profound disagreement with a friend.',
-	'If you could have a book with all the answers, would you read it? Why or why not?',
-	'What goal are you working on right now?',
-];
-
 export const PILLS = [
 	{
 		id: '10x10',

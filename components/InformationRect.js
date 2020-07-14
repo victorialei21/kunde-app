@@ -12,7 +12,7 @@ import DefaultButton from './DefaultButton';
 import Colors from '../constants/Colors';
 
 const InformationRect = (props) => {
-	if (props.journal === true) {
+	if (props.goals === true) {
 		return (
 			<TouchableOpacity
 				style={{ ...styles.infoItem, ...props.style }}
