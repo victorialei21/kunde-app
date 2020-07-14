@@ -62,37 +62,42 @@ const MoodTrackerScreen = (props) => {
 				<View style={styles.buttonsContainer}>
 					<MoodButton
 						name='emoticon-angry-outline'
-						onPress={mood === 0 ? () => moodHandler(1) : () => moodHandler(0)}
+						onPress={mood !== 1 ? () => moodHandler(1) : () => moodHandler(0)}
 						style={{
-							backgroundColor: mood === 1 ? Colors.yellow : Colors.background,
+							backgroundColor:
+								mood === 1 ? Colors.highlight : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='emoji-sad'
-						onPress={mood === 0 ? () => moodHandler(2) : () => moodHandler(0)}
+						onPress={mood !== 2 ? () => moodHandler(2) : () => moodHandler(0)}
 						style={{
-							backgroundColor: mood === 2 ? Colors.yellow : Colors.background,
+							backgroundColor:
+								mood === 2 ? Colors.highlight : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='emoji-neutral'
-						onPress={mood === 0 ? () => moodHandler(3) : () => moodHandler(0)}
+						onPress={mood !== 3 ? () => moodHandler(3) : () => moodHandler(0)}
 						style={{
-							backgroundColor: mood === 3 ? Colors.yellow : Colors.background,
+							backgroundColor:
+								mood === 3 ? Colors.highlight : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='emoji-happy'
-						onPress={mood === 0 ? () => moodHandler(4) : () => moodHandler(0)}
+						onPress={mood !== 4 ? () => moodHandler(4) : () => moodHandler(0)}
 						style={{
-							backgroundColor: mood === 4 ? Colors.yellow : Colors.background,
+							backgroundColor:
+								mood === 4 ? Colors.highlight : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='tag-faces'
-						onPress={mood === 0 ? () => moodHandler(5) : () => moodHandler(0)}
+						onPress={mood !== 5 ? () => moodHandler(5) : () => moodHandler(0)}
 						style={{
-							backgroundColor: mood === 5 ? Colors.yellow : Colors.background,
+							backgroundColor:
+								mood === 5 ? Colors.highlight : Colors.background,
 						}}
 					/>
 				</View>
@@ -127,24 +132,22 @@ const MoodTrackerScreen = (props) => {
 							},
 						],
 					}}
-					width={Dimensions.get('window').width * 0.8}
+					width={Dimensions.get('window').width * 0.85}
 					height={200}
 					chartConfig={{
 						backgroundColor: '#1cc910',
-						backgroundGradientFrom: '#eff3ff',
-						backgroundGradientTo: '#efefef',
+						backgroundGradientFrom: '#ffffff',
+						backgroundGradientTo: '#ffffff',
 						decimalPlaces: 0,
 						color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-						style: {
-							borderRadius: 10,
-						},
 					}}
 					yLabelsOffset={18}
 					bezier
 					style={{
 						marginVertical: 8,
 						borderRadius: 10,
-						borderWidth: 2,
+						borderWidth: 1,
+						overflow: 'hidden',
 					}}
 				/>
 			</View>
@@ -180,7 +183,7 @@ const styles = StyleSheet.create({
 	buttonContainer: { marginTop: 10, marginBottom: 15 },
 	buttonsScaleContainer: {
 		flexDirection: 'column',
-		borderWidth: 2,
+		borderWidth: 1,
 		margin: 10,
 		paddingBottom: 15,
 		borderRadius: 10,

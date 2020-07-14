@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 
-import PillReminderBox from '../components/PillReminderBox';
 import DateText from '../components/DateText';
 import { PILLS } from '../data/dummy-data';
 import Colors from '../constants/Colors';
+import PillItem from '../components/PillItem';
 
 const PillReminderScreen = (props) => {
 	return (
@@ -14,10 +14,11 @@ const PillReminderScreen = (props) => {
 			</View>
 			<SafeAreaView style={styles.listContainer}>
 				<FlatList
+					style={{ width: '100%' }}
 					data={PILLS}
 					renderItem={({ item }) => (
-						<View>
-							<PillReminderBox
+						<View style={styles.pillContainer}>
+							<PillItem
 								title={item.title}
 								time={item.time}
 								quantity={item.quantity}
@@ -49,7 +50,10 @@ const styles = StyleSheet.create({
 	listContainer: {
 		flex: 1,
 		flexDirection: 'column',
-		width: '85%',
+		width: '95%',
+		alignItems: 'center',
+	},
+	pillContainer: {
 		alignItems: 'center',
 	},
 });

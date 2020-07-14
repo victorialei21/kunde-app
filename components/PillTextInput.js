@@ -22,14 +22,11 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		width: '90%',
-		borderRadius: 10,
-		borderWidth: 1,
+		width: '100%',
 		margin: 10,
+		borderBottomWidth: 0.5,
 		padding: 10,
 	},
-	title: {},
-	input: {},
 });
 
 export default PillTextInput;

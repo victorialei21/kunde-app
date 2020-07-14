@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 import DefaultButton from '../components/DefaultButton';
-import DefaultText from '../components/DefaultText';
 import PillTextInput from '../components/PillTextInput';
 import Colors from '../constants/Colors';
 
@@ -58,22 +57,12 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	saveButton: {
-		padding: 15,
+		padding: 20,
 	},
 	inputContainer: {
 		width: '90%',
 		justifyContent: 'center',
 		alignItems: 'center',
-	},
-	nameContainer: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		paddingVertical: 5,
-		paddingHorizontal: 10,
-	},
-	input: {
-		borderBottomWidth: 2,
 	},
 });
 

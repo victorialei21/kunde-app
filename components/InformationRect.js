@@ -43,10 +43,7 @@ const InformationRect = (props) => {
 	}
 	if (props.kunde === true) {
 		return (
-			<TouchableOpacity
-				style={{ ...styles.infoItem, ...props.style }}
-				onPress={props.onSelect}
-			>
+			<View style={{ ...styles.infoItem, ...props.style }}>
 				<View style={styles.headerContainer}>
 					<Text style={styles.header}>{props.header}</Text>
 				</View>
@@ -73,7 +70,7 @@ const InformationRect = (props) => {
 						}
 					/>
 				</View>
-			</TouchableOpacity>
+			</View>
 		);
 	} else {
 		return (
@@ -89,13 +86,20 @@ const InformationRect = (props) => {
 
 const styles = StyleSheet.create({
 	infoItem: {
-		borderWidth: 2,
 		padding: 10,
 		margin: 5,
 		width: '95%',
-		borderRadius: 10,
-		backgroundColor: Colors.blue,
 		alignItems: 'center',
+		backgroundColor: Colors.yellow,
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3,
+		elevation: 5,
+		borderRadius: 10,
 	},
 	header: {
 		fontFamily: 'rubik-medium',
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
 		padding: 5,
 	},
 	linkButton: {
-		backgroundColor: Colors.orange,
+		backgroundColor: Colors.red,
 		width: '33%',
 		padding: 5,
 		margin: 5,

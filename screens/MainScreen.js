@@ -21,12 +21,17 @@ const MainScreen = (props) => {
 						content={AFFIRMATIONS[0]}
 						affirmation={true}
 					/>
+				</View>
+				<View style={styles.rectContainer}>
 					<InformationRect
 						header={"Today's Information"}
-						content={<DateText style={{ fontSize: 15 }} />}
+						content={
+							<DateText style={{ fontSize: 15, fontFamily: 'rubik-regular' }} />
+						}
+						style={{ backgroundColor: Colors.blue }}
 					/>
 				</View>
-				<View style={styles.pillMoodContainer}>
+				<View style={styles.boxContainer}>
 					<InformationBox
 						header={'Pill Reminders'}
 						content={'Need to take:'}
@@ -45,10 +50,10 @@ const MainScreen = (props) => {
 				<View style={styles.rectContainer}>
 					<InformationRect
 						goals={true}
-						header={"Today's Goals"}
-						content={<DefaultText>Placeholder</DefaultText>}
+						header={"Today's Tasks"}
+						content={<DefaultText>Preview of tasks</DefaultText>}
 						onSelect={() => {
-							props.navigation.navigate('Goals');
+							props.navigation.navigate('Tasks');
 						}}
 					/>
 				</View>
@@ -56,6 +61,7 @@ const MainScreen = (props) => {
 					<InformationRect
 						kunde={true}
 						header={'Learn More about Kunde Social Cafe!'}
+						style={{ backgroundColor: Colors.blue }}
 					/>
 				</View>
 			</View>
@@ -68,7 +74,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		flexDirection: 'column',
 		backgroundColor: Colors.background,
 	},
 	title: {
@@ -80,14 +85,13 @@ const styles = StyleSheet.create({
 		paddingTop: 20,
 	},
 	rectContainer: {
-		paddingHorizontal: 20,
 		paddingVertical: 5,
-		width: '98%',
+		width: '100%',
 		alignItems: 'center',
+		shadowRadius: 0,
 	},
-	pillMoodContainer: {
+	boxContainer: {
 		flexDirection: 'row',
-		paddingHorizontal: 20,
 		alignItems: 'center',
 	},
 });

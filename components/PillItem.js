@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import DefaultText from './DefaultText';
 
-const PillReminderBox = (props) => {
+const PillItem = (props) => {
 	return (
 		<View style={styles.pillBox}>
 			<View style={styles.pillItem}>
@@ -23,11 +23,9 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		width: '80%',
+		width: Dimensions.get('screen').width * 0.85,
 		margin: 10,
-		borderWidth: 2,
-		borderRadius: 10,
-		padding: 15,
+		padding: 10,
 	},
 	pillItem: {
 		flexDirection: 'column',
@@ -36,4 +34,4 @@ const styles = StyleSheet.create({
 	checkbox: {},
 });
 
-export default PillReminderBox;
+export default PillItem;

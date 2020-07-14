@@ -1,16 +1,16 @@
 import React from 'react';
-import { Text, StyleSheet, Button } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-import GoalsScreen from '../screens/GoalsScreen';
+import TasksScreen from '../screens/TasksScreen';
 import MainScreen from '../screens/MainScreen';
 import MoodTrackerScreen from '../screens/MoodTrackerScreen';
 import PillReminderScreen from '../screens/PillReminderScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import PastGoalsScreen from '../screens/PastGoalsScreen';
+import PastTasksScreen from '../screens/PastTasksScreen';
 import AddNewPillScreen from '../screens/AddNewPillScreen';
 import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
@@ -22,7 +22,7 @@ function MainStackScreen() {
 		<MainStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.yellow },
+				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
 			<MainStack.Screen
@@ -43,7 +43,7 @@ function PillStackScreen() {
 		<PillStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.yellow },
+				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
 			<PillStack.Screen
@@ -51,13 +51,15 @@ function PillStackScreen() {
 				component={PillReminderScreen}
 				options={({ navigation }) => ({
 					title: 'Pill Reminders',
-					headerRight: () => (
-						<DefaultButton
+					headerRight: (tabInfo) => (
+						<MaterialCommunityIcons
+							name='plus-circle-outline'
+							color='black'
+							size={30}
 							onPress={() => navigation.navigate('Add Pill')}
-							title='Add Pill'
 						/>
 					),
-					headerRightContainerStyle: { padding: 20 },
+					headerRightContainerStyle: { padding: 15 },
 				})}
 			/>
 			<PillStack.Screen
@@ -78,7 +80,7 @@ function MoodStackScreen() {
 		<MoodStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.yellow },
+				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
 			<MoodStack.Screen
@@ -92,29 +94,29 @@ function MoodStackScreen() {
 	);
 }
 
-const GoalsStack = createStackNavigator();
+const TasksStack = createStackNavigator();
 
-function GoalsStackScreen() {
+function TasksStackScreen() {
 	return (
-		<GoalsStack.Navigator
+		<TasksStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.yellow },
+				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
-			<GoalsStack.Screen
-				name='Goals'
-				component={GoalsScreen}
+			<TasksStack.Screen
+				name='Tasks'
+				component={TasksScreen}
 				options={{
-					title: 'Daily Goals',
+					title: 'Daily Tasks',
 				}}
 			/>
-			<GoalsStack.Screen
-				name='Past Goals'
-				component={PastGoalsScreen}
-				options={{ title: 'Past Goals' }}
+			<TasksStack.Screen
+				name='Past Tasks'
+				component={PastTasksScreen}
+				options={{ title: 'Past Tasks' }}
 			/>
-		</GoalsStack.Navigator>
+		</TasksStack.Navigator>
 	);
 }
 
@@ -125,7 +127,7 @@ function SettingsStackScreen() {
 		<SettingsStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.yellow },
+				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
 			<SettingsStack.Screen
@@ -147,7 +149,7 @@ function KundeNavigator() {
 			<Tab.Navigator
 				shifting={true}
 				activeColor={'black'}
-				barStyle={{ backgroundColor: Colors.yellow }}
+				barStyle={{ backgroundColor: Colors.background }}
 			>
 				<Tab.Screen
 					name='Home'
@@ -188,10 +190,10 @@ function KundeNavigator() {
 					}}
 				/>
 				<Tab.Screen
-					name='Goals'
-					component={GoalsStackScreen}
+					name='Tasks'
+					component={TasksStackScreen}
 					options={{
-						tabBarLabel: 'Goals',
+						tabBarLabel: 'Tasks',
 						tabBarIcon: (tabInfo) => (
 							<MaterialCommunityIcons
 								name='check-bold'

@@ -3,10 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 
-const PastGoalsScreen = (props) => {
+const PastTasksScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<Text>Past Goals Screen</Text>
+			<Text>Past Tasks Screen</Text>
 		</View>
 	);
 };
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default PastGoalsScreen;
+export default PastTasksScreen;
