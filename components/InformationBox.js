@@ -14,7 +14,9 @@ const InformationBox = (props) => {
 				<Text style={styles.header}>{props.header}</Text>
 			</View>
 			<View style={styles.contentContainer}>
-				<DefaultText>{props.content}</DefaultText>
+				<DefaultText style={{ textAlign: 'center' }}>
+					{props.content}
+				</DefaultText>
 			</View>
 		</TouchableOpacity>
 	);
@@ -31,9 +33,8 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.orange,
 	},
 	contentContainer: {
-		paddingVertical: 5,
-		marginBottom: 10,
-		paddingHorizontal: 10,
+		padding: 5,
+		marginHorizontal: 5,
 		width: '90%',
 		alignSelf: 'center',
 	},

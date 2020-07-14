@@ -29,18 +29,14 @@ const MainScreen = (props) => {
 				<View style={styles.pillMoodContainer}>
 					<InformationBox
 						header={'Pill Reminders'}
-						content={
-							'filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler'
-						}
+						content={'Need to take:'}
 						onSelect={() => {
 							props.navigation.navigate('Pills');
 						}}
 					/>
 					<InformationBox
 						header={'Mood Tracker'}
-						content={
-							'filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler filler'
-						}
+						content={'How are you feeling right now? Click to rate your mood!'}
 						onSelect={() => {
 							props.navigation.navigate('Mood');
 						}}

@@ -31,7 +31,23 @@ const JournalScreen = (props) => {
 		}
 	};
 	const cancelEntry = () => {
-		setJournalInput('');
+		if (journalInput !== '') {
+			Alert.alert(
+				'Cancel Entry',
+				'Are you sure you want to erase this journal entry?',
+				[
+					{
+						text: 'Yes',
+						onPress: () => {
+							setJournalInput('');
+						},
+					},
+					{ text: 'No' },
+				]
+			);
+		} else {
+			Alert.alert('Error', 'You cannot cancel an empty journal entry.');
+		}
 	};
 
 	const goToPastEntries = () => {
@@ -47,7 +63,7 @@ const JournalScreen = (props) => {
 			<View style={styles.screen}>
 				<Text style={styles.title}>Journal Prompt of the Day: </Text>
 				<View style={styles.prompt}>
-					<DefaultText>{PROMPTS[6]}</DefaultText>
+					<DefaultText>{PROMPTS[0]}</DefaultText>
 				</View>
 				<View style={styles.inputContainer}>
 					<TextInput
@@ -89,6 +105,7 @@ const styles = StyleSheet.create({
 		padding: 15,
 		width: '80%',
 		marginVertical: 20,
+		alignItems: 'center',
 		backgroundColor: Colors.orange,
 	},
 	input: { fontFamily: 'rubik-regular' },

@@ -20,13 +20,23 @@ const MoodTrackerScreen = (props) => {
 			);
 		}
 
-		return Alert.alert(
-			'Success',
-			'You submitted your mood at ' +
-				hours +
-				':' +
-				minutesWithZeroes(currentTime)
-		);
+		if (mood !== 0) {
+			setMood(0);
+			return Alert.alert(
+				'Success!',
+				'You submitted your mood of ' +
+					mood +
+					' at ' +
+					hours +
+					':' +
+					minutesWithZeroes(currentTime)
+			);
+		} else {
+			return Alert.alert(
+				'Error!',
+				'Please select a mood before pressing submit'
+			);
+		}
 	};
 
 	const moodHandler = (value) => {
@@ -52,35 +62,35 @@ const MoodTrackerScreen = (props) => {
 				<View style={styles.buttonsContainer}>
 					<MoodButton
 						name='emoticon-angry-outline'
-						onPress={() => moodHandler(1)}
+						onPress={mood === 0 ? () => moodHandler(1) : () => moodHandler(0)}
 						style={{
 							backgroundColor: mood === 1 ? Colors.yellow : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='emoji-sad'
-						onPress={() => moodHandler(2)}
+						onPress={mood === 0 ? () => moodHandler(2) : () => moodHandler(0)}
 						style={{
 							backgroundColor: mood === 2 ? Colors.yellow : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='emoji-neutral'
-						onPress={() => moodHandler(3)}
+						onPress={mood === 0 ? () => moodHandler(3) : () => moodHandler(0)}
 						style={{
 							backgroundColor: mood === 3 ? Colors.yellow : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='emoji-happy'
-						onPress={() => moodHandler(4)}
+						onPress={mood === 0 ? () => moodHandler(4) : () => moodHandler(0)}
 						style={{
 							backgroundColor: mood === 4 ? Colors.yellow : Colors.background,
 						}}
 					/>
 					<MoodButton
 						name='tag-faces'
-						onPress={() => moodHandler(5)}
+						onPress={mood === 0 ? () => moodHandler(5) : () => moodHandler(0)}
 						style={{
 							backgroundColor: mood === 5 ? Colors.yellow : Colors.background,
 						}}
