@@ -39,19 +39,20 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 		backgroundColor: Colors.background,
 	},
-	titleContainer: {
-		paddingTop: 30,
-		paddingBottom: 20,
-	},
+
 	title: {
 		fontFamily: 'rubik-medium',
 		fontSize: 20,
 	},
-	listContainer: {
+	titleContainer: {
+		paddingTop: 15,
+		margin: 10,
 		flex: 1,
-		flexDirection: 'column',
+		justifyContent: 'center',
+	},
+	listContainer: {
+		flex: 12,
 		width: '95%',
-		alignItems: 'center',
 	},
 	pillContainer: {
 		alignItems: 'center',

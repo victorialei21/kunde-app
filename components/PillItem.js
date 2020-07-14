@@ -3,6 +3,7 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import DefaultText from './DefaultText';
+import Colors from '../constants/Colors';
 
 const PillItem = (props) => {
 	return (
@@ -13,7 +14,7 @@ const PillItem = (props) => {
 				</DefaultText>
 				<DefaultText>{props.time}</DefaultText>
 			</View>
-			<CheckBox />
+			<CheckBox tintColors={{ true: Colors.red, false: 'black' }} />
 		</View>
 	);
 };

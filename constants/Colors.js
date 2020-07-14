@@ -7,4 +7,5 @@ export default {
 	red: '#f7816f',
 	background: '#fff9e9', //cream
 	highlight: '#ffe291',
+	white: '#ffffff',
 };

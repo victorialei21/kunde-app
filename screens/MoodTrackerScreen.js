@@ -102,14 +102,14 @@ const MoodTrackerScreen = (props) => {
 					/>
 				</View>
 				<View style={styles.scaleContainer}>
-					<DefaultText style={styles.scaleText}>1</DefaultText>
-					<DefaultText style={styles.scaleText}>2</DefaultText>
-					<DefaultText style={styles.scaleText}>3</DefaultText>
-					<DefaultText style={styles.scaleText}>4</DefaultText>
-					<DefaultText style={styles.scaleText}>5</DefaultText>
+					<DefaultText style={{ fontSize: 30 }}>1</DefaultText>
+					<DefaultText style={{ fontSize: 30 }}>2</DefaultText>
+					<DefaultText style={{ fontSize: 30 }}>3</DefaultText>
+					<DefaultText style={{ fontSize: 30 }}>4</DefaultText>
+					<DefaultText style={{ fontSize: 30 }}>5</DefaultText>
 				</View>
 			</View>
-			<View style={styles.buttonContainer}>
+			<View style={styles.submitButtonContainer}>
 				<DefaultButton title={'Submit Mood'} onPress={moodSubmitAlert} />
 			</View>
 			<View>
@@ -135,9 +135,8 @@ const MoodTrackerScreen = (props) => {
 					width={Dimensions.get('window').width * 0.85}
 					height={200}
 					chartConfig={{
-						backgroundColor: '#1cc910',
-						backgroundGradientFrom: '#ffffff',
-						backgroundGradientTo: '#ffffff',
+						backgroundGradientFrom: Colors.white,
+						backgroundGradientTo: Colors.white,
 						decimalPlaces: 0,
 						color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
 					}}
@@ -146,8 +145,15 @@ const MoodTrackerScreen = (props) => {
 					style={{
 						marginVertical: 8,
 						borderRadius: 10,
-						borderWidth: 1,
 						overflow: 'hidden',
+						shadowColor: '#000',
+						shadowOffset: {
+							width: 0,
+							height: 2,
+						},
+						shadowOpacity: 0.25,
+						shadowRadius: 3,
+						elevation: 5,
 					}}
 				/>
 			</View>
@@ -166,6 +172,11 @@ const styles = StyleSheet.create({
 		fontFamily: 'rubik-medium',
 		fontSize: 20,
 	},
+	titleContainer: {
+		flex: 1,
+		marginTop: 15,
+		justifyContent: 'center',
+	},
 	buttonsContainer: {
 		flexDirection: 'row',
 		padding: 10,
@@ -176,26 +187,41 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10,
 		width: '85%',
 		justifyContent: 'space-between',
+		backgroundColor: Colors.red,
+		borderRadius: 10,
+		padding: 5,
+		shadowColor: '#000',
+		shadowOffset: {
+			width: 0,
+			height: 2,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 3,
+		elevation: 5,
 	},
-	scaleText: {
-		fontSize: 30,
-	},
-	buttonContainer: { marginTop: 10, marginBottom: 15 },
+	submitButtonContainer: { marginTop: 10, marginBottom: 15 },
 	buttonsScaleContainer: {
 		flexDirection: 'column',
-		borderWidth: 1,
+		flex: 2,
 		margin: 10,
 		paddingBottom: 15,
 		borderRadius: 10,
+		borderWidth: 1,
 		width: Dimensions.get('window').width * 0.85,
 		alignItems: 'center',
+		// shadowColor: '#000',
+		// shadowOffset: {
+		// 	width: 0,
+		// 	height: 2,
+		// },
+		// shadowOpacity: 0.25,
+		// shadowRadius: 3,
+		// elevation: 5,
 	},
 	chartContainer: {
 		flexDirection: 'column',
 		justifyContent: 'center',
-	},
-	titleContainer: {
-		marginTop: 20,
+		flex: 4,
 	},
 });
 

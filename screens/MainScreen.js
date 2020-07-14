@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import InformationRect from '../components/InformationRect';
 import InformationBox from '../components/InformationBox';
-import { AFFIRMATIONS, PROMPTS } from '../data/dummy-data';
+import { AFFIRMATIONS } from '../data/dummy-data';
 import DateText from '../components/DateText';
 import DefaultText from '../components/DefaultText';
 import Colors from '../constants/Colors';

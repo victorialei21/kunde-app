@@ -22,6 +22,18 @@ export const AFFIRMATIONS = [
 	'I am happy',
 ];
 
+export const TASKS = [
+	{ title: 'Eat 50 grams of grains', id: '1' },
+	{ title: 'Watch the sunset', id: '2' },
+	{ title: 'Take a long walk', id: '3' },
+	{ title: 'Drink 6 cups of water', id: '4' },
+	{ title: 'Meditate for 10 minutes', id: '5' },
+	{
+		title: 'Write your some of your thoughts down will this fill over',
+		id: '6',
+	},
+];
+
 export const PILLS = [
 	{
 		id: '10x10',
@@ -55,6 +67,18 @@ export const PILLS = [
 	},
 	{
 		id: 'fa',
+		title: 'Amoxicillin',
+		time: '9:00 AM',
+		quantity: 2,
+	},
+	{
+		id: 'random',
+		title: 'Amoxicillin',
+		time: '9:00 AM',
+		quantity: 2,
+	},
+	{
+		id: 'random1',
 		title: 'Amoxicillin',
 		time: '9:00 AM',
 		quantity: 2,

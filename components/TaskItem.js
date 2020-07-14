@@ -1,40 +1,34 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, View } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { StyleSheet, View } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
 
 import DefaultText from './DefaultText';
+import Colors from '../constants/Colors';
 
 const TaskItem = (props) => {
 	return (
-		<TouchableOpacity
-			style={{ ...styles.item, ...props.style }}
-			onPress={props.onPress}
-		>
-			<View style={styles.textContainer}>
+		<View style={{ ...styles.item, ...props.style }}>
+			<View style={{ flex: 9 }}>
 				<DefaultText style={{ fontSize: 15 }}>{props.title}</DefaultText>
 			</View>
-			<View>
-				<MaterialIcons name='keyboard-arrow-right' size={20} />
+			<View style={{ flex: 1 }}>
+				<CheckBox tintColors={{ true: 'black', false: 'black' }} />
 			</View>
-		</TouchableOpacity>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	item: {
-		paddingHorizontal: 15,
-		paddingVertical: 10,
-		borderBottomWidth: 1,
-		borderBottomColor: 'grey',
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'space-between',
-		width: '95%',
-	},
-	textContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		padding: 10,
+		justifyContent: 'space-between',
+		width: '90%',
+		padding: 15,
+		borderRadius: 10,
+		margin: 10,
+		backgroundColor: Colors.yellow,
 	},
 });
 

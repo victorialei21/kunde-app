@@ -3,15 +3,15 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	TextInput,
 	TouchableWithoutFeedback,
 	Keyboard,
-	Alert,
+	FlatList,
 } from 'react-native';
 
 import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
 import TaskItem from '../components/TaskItem';
+import { TASKS } from '../data/dummy-data';
 
 const TasksScreen = (props) => {
 	const pastTasks = () => {
@@ -25,16 +25,28 @@ const TasksScreen = (props) => {
 			}}
 		>
 			<View style={styles.screen}>
-				<Text style={styles.title}>To Do List</Text>
-				<TaskItem />
-				<TaskItem />
-				<TaskItem />
-				<TaskItem />
-				<DefaultButton
-					title={'Completed Tasks'}
-					onPress={pastTasks}
-					style={{ margin: 20, padding: 5 }}
-				/>
+				<View style={styles.titleContainer}>
+					<Text style={styles.title}>To Do List</Text>
+				</View>
+				<View style={styles.listContainer}>
+					<FlatList
+						style={{ width: '100%' }}
+						data={TASKS}
+						renderItem={({ item }) => (
+							<View style={styles.itemContainer}>
+								<TaskItem title={item.title} />
+							</View>
+						)}
+						keyExtractor={(item) => item.id}
+					/>
+				</View>
+				<View>
+					<DefaultButton
+						title={'Completed Tasks'}
+						onPress={pastTasks}
+						style={{ margin: 20, padding: 5 }}
+					/>
+				</View>
 			</View>
 		</TouchableWithoutFeedback>
 	);
@@ -43,39 +55,23 @@ const TasksScreen = (props) => {
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
 	},
 	title: {
 		fontFamily: 'rubik-medium',
 		fontSize: 20,
-		paddingTop: 12,
-	},
-	prompt: {
-		borderWidth: 2,
-		borderRadius: 10,
-		padding: 15,
-		width: '80%',
-		marginVertical: 20,
-		alignItems: 'center',
-		backgroundColor: Colors.orange,
-	},
-	input: { fontFamily: 'rubik-regular' },
-	inputContainer: {
-		borderWidth: 2,
-		borderRadius: 10,
-		padding: 10,
-		marginBottom: 20,
-		height: '45%',
-		width: '80%',
-	},
-	entryButtons: {
-		flexDirection: 'row',
-		width: '60%',
-		justifyContent: 'space-between',
 		paddingTop: 10,
-		paddingBottom: 15,
+	},
+	titleContainer: {
+		justifyContent: 'center',
+		padding: 20,
+		flex: 1,
+	},
+	listContainer: { flex: 12, width: '95%' },
+	itemContainer: {
+		alignItems: 'center',
 	},
 });
 
