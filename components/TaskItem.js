@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
@@ -6,13 +6,22 @@ import DefaultText from './DefaultText';
 import Colors from '../constants/Colors';
 
 const TaskItem = (props) => {
+	const [toggleCheckBox, setToggleCheckBox] = useState(false);
+
 	return (
 		<View style={{ ...styles.item, ...props.style }}>
 			<View style={{ flex: 9 }}>
 				<DefaultText style={{ fontSize: 15 }}>{props.title}</DefaultText>
 			</View>
 			<View style={{ flex: 1 }}>
-				<CheckBox tintColors={{ true: 'black', false: 'black' }} />
+				<CheckBox
+					tintColors={{ true: 'black', false: 'black' }}
+					disabled={false}
+					value={toggleCheckBox}
+					onValueChange={() =>
+						toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)
+					}
+				/>
 			</View>
 		</View>
 	);

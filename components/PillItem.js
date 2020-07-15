@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
@@ -6,6 +6,8 @@ import DefaultText from './DefaultText';
 import Colors from '../constants/Colors';
 
 const PillItem = (props) => {
+	const [toggleCheckBox, setToggleCheckBox] = useState(false);
+
 	return (
 		<View style={styles.pillBox}>
 			<View style={styles.pillItem}>
@@ -14,7 +16,14 @@ const PillItem = (props) => {
 				</DefaultText>
 				<DefaultText>{props.time}</DefaultText>
 			</View>
-			<CheckBox tintColors={{ true: Colors.red, false: 'black' }} />
+			<CheckBox
+				tintColors={{ true: Colors.red, false: 'black' }}
+				disabled={false}
+				value={toggleCheckBox}
+				onValueChange={() =>
+					toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)
+				}
+			/>
 		</View>
 	);
 };

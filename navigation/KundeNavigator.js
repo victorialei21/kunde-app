@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionSpecs } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -12,7 +12,6 @@ import PillReminderScreen from '../screens/PillReminderScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PastTasksScreen from '../screens/PastTasksScreen';
 import AddNewPillScreen from '../screens/AddNewPillScreen';
-import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
 
 const MainStack = createStackNavigator();

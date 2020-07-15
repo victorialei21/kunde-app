@@ -64,6 +64,7 @@ const MoodTrackerScreen = (props) => {
 						name='emoticon-angry-outline'
 						onPress={mood !== 1 ? () => moodHandler(1) : () => moodHandler(0)}
 						style={{
+							padding: 2,
 							backgroundColor:
 								mood === 1 ? Colors.highlight : Colors.background,
 						}}
@@ -72,6 +73,7 @@ const MoodTrackerScreen = (props) => {
 						name='emoji-sad'
 						onPress={mood !== 2 ? () => moodHandler(2) : () => moodHandler(0)}
 						style={{
+							padding: 2,
 							backgroundColor:
 								mood === 2 ? Colors.highlight : Colors.background,
 						}}
@@ -80,6 +82,7 @@ const MoodTrackerScreen = (props) => {
 						name='emoji-neutral'
 						onPress={mood !== 3 ? () => moodHandler(3) : () => moodHandler(0)}
 						style={{
+							padding: 2,
 							backgroundColor:
 								mood === 3 ? Colors.highlight : Colors.background,
 						}}
@@ -88,6 +91,7 @@ const MoodTrackerScreen = (props) => {
 						name='emoji-happy'
 						onPress={mood !== 4 ? () => moodHandler(4) : () => moodHandler(0)}
 						style={{
+							padding: 2,
 							backgroundColor:
 								mood === 4 ? Colors.highlight : Colors.background,
 						}}
@@ -96,6 +100,7 @@ const MoodTrackerScreen = (props) => {
 						name='tag-faces'
 						onPress={mood !== 5 ? () => moodHandler(5) : () => moodHandler(0)}
 						style={{
+							padding: 2,
 							backgroundColor:
 								mood === 5 ? Colors.highlight : Colors.background,
 						}}
@@ -112,50 +117,52 @@ const MoodTrackerScreen = (props) => {
 			<View style={styles.submitButtonContainer}>
 				<DefaultButton title={'Submit Mood'} onPress={moodSubmitAlert} />
 			</View>
-			<View>
-				<Text style={styles.title}>Mood Summary—Five Past Entries</Text>
-			</View>
-			<View>
-				<LineChart
-					data={{
-						labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'],
-						datasets: [
-							{
-								data: [
-									Math.ceil(Math.random() * 5),
-									Math.ceil(Math.random() * 5),
-									Math.ceil(Math.random() * 5),
-									Math.ceil(Math.random() * 5),
-									Math.ceil(Math.random() * 5),
-								],
-								strokeWidth: 2,
+			<View style={styles.chartContainer}>
+				<View>
+					<Text style={styles.title}>Mood Summary—Five Past Entries</Text>
+				</View>
+				<View>
+					<LineChart
+						data={{
+							labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'],
+							datasets: [
+								{
+									data: [
+										Math.ceil(Math.random() * 5),
+										Math.ceil(Math.random() * 5),
+										Math.ceil(Math.random() * 5),
+										Math.ceil(Math.random() * 5),
+										Math.ceil(Math.random() * 5),
+									],
+									strokeWidth: 2,
+								},
+							],
+						}}
+						width={Dimensions.get('window').width * 0.85}
+						height={200}
+						chartConfig={{
+							backgroundGradientFrom: Colors.white,
+							backgroundGradientTo: Colors.white,
+							decimalPlaces: 0,
+							color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+						}}
+						yLabelsOffset={18}
+						bezier
+						style={{
+							marginVertical: 10,
+							borderRadius: 10,
+							overflow: 'hidden',
+							shadowColor: '#000',
+							shadowOffset: {
+								width: 0,
+								height: 2,
 							},
-						],
-					}}
-					width={Dimensions.get('window').width * 0.85}
-					height={200}
-					chartConfig={{
-						backgroundGradientFrom: Colors.white,
-						backgroundGradientTo: Colors.white,
-						decimalPlaces: 0,
-						color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-					}}
-					yLabelsOffset={18}
-					bezier
-					style={{
-						marginVertical: 8,
-						borderRadius: 10,
-						overflow: 'hidden',
-						shadowColor: '#000',
-						shadowOffset: {
-							width: 0,
-							height: 2,
-						},
-						shadowOpacity: 0.25,
-						shadowRadius: 3,
-						elevation: 5,
-					}}
-				/>
+							shadowOpacity: 0.25,
+							shadowRadius: 3,
+							elevation: 5,
+						}}
+					/>
+				</View>
 			</View>
 		</View>
 	);
@@ -179,8 +186,8 @@ const styles = StyleSheet.create({
 	},
 	buttonsContainer: {
 		flexDirection: 'row',
-		padding: 10,
-		justifyContent: 'center',
+		padding: 15,
+		alignItems: 'center',
 	},
 	scaleContainer: {
 		flexDirection: 'row',
@@ -199,29 +206,22 @@ const styles = StyleSheet.create({
 		shadowRadius: 3,
 		elevation: 5,
 	},
-	submitButtonContainer: { marginTop: 10, marginBottom: 15 },
+	submitButtonContainer: {
+		marginTop: 20,
+		marginBottom: 10,
+		flex: 1,
+		justifyContent: 'center',
+	},
 	buttonsScaleContainer: {
 		flexDirection: 'column',
 		flex: 2,
-		margin: 10,
-		paddingBottom: 15,
-		borderRadius: 10,
-		borderWidth: 1,
+		margin: 5,
 		width: Dimensions.get('window').width * 0.85,
 		alignItems: 'center',
-		// shadowColor: '#000',
-		// shadowOffset: {
-		// 	width: 0,
-		// 	height: 2,
-		// },
-		// shadowOpacity: 0.25,
-		// shadowRadius: 3,
-		// elevation: 5,
+		padding: 5,
 	},
 	chartContainer: {
-		flexDirection: 'column',
-		justifyContent: 'center',
-		flex: 4,
+		flex: 5,
 	},
 });
 
