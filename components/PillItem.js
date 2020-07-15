@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import { CheckBox } from 'react-native-elements';
 
 import DefaultText from './DefaultText';
 import Colors from '../constants/Colors';
@@ -16,14 +16,18 @@ const PillItem = (props) => {
 				</DefaultText>
 				<DefaultText>{props.time}</DefaultText>
 			</View>
-			<CheckBox
-				tintColors={{ true: Colors.red, false: 'black' }}
-				disabled={false}
-				value={toggleCheckBox}
-				onValueChange={() =>
-					toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)
-				}
-			/>
+			<View style={{ flex: 1 }}>
+				<CheckBox
+					checked={toggleCheckBox}
+					onPress={() =>
+						toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)
+					}
+					checkedIcon='check-square'
+					checkedColor={Colors.red}
+					uncheckedColor='black'
+					center
+				/>
+			</View>
 		</View>
 	);
 };
@@ -34,14 +38,14 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		width: Dimensions.get('screen').width * 0.85,
-		margin: 10,
+		margin: 5,
 		padding: 10,
 	},
 	pillItem: {
 		flexDirection: 'column',
 		alignItems: 'flex-start',
+		flex: 7,
 	},
-	checkbox: {},
 });
 
 export default PillItem;

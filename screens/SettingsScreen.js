@@ -18,6 +18,9 @@ const SettingsScreen = (props) => {
 					}}
 				/>
 			</View>
+			<View>
+				<DefaultText style={{ fontSize: 15 }}>First Name</DefaultText>
+			</View>
 			<View style={styles.container}>
 				<SettingItem title='Profile' />
 				<SettingItem title='Track Data' />

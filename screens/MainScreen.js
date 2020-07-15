@@ -3,9 +3,8 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import InformationRect from '../components/InformationRect';
 import InformationBox from '../components/InformationBox';
-import { AFFIRMATIONS } from '../data/dummy-data';
+import { AFFIRMATIONS, TASKS, PILLS } from '../data/dummy-data';
 import DateText from '../components/DateText';
-import DefaultText from '../components/DefaultText';
 import Colors from '../constants/Colors';
 
 const MainScreen = (props) => {
@@ -33,8 +32,8 @@ const MainScreen = (props) => {
 				</View>
 				<View style={styles.boxContainer}>
 					<InformationBox
-						header={'Pill Reminders'}
-						content={'Need to take:'}
+						header={'Next Pill'}
+						content={`${PILLS[0].title}, ${PILLS[0].time}`}
 						onSelect={() => {
 							props.navigation.navigate('Pills');
 						}}
@@ -50,8 +49,8 @@ const MainScreen = (props) => {
 				<View style={styles.rectContainer}>
 					<InformationRect
 						goals={true}
-						header={"Today's Tasks"}
-						content={<DefaultText>Preview of tasks</DefaultText>}
+						header={'Upcoming Task'}
+						content={TASKS[0].title}
 						onSelect={() => {
 							props.navigation.navigate('Tasks');
 						}}

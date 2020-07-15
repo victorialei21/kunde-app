@@ -10,6 +10,7 @@ import {
 import DefaultText from './DefaultText';
 import DefaultButton from './DefaultButton';
 import Colors from '../constants/Colors';
+import { TASKS } from '../data/dummy-data';
 
 const InformationRect = (props) => {
 	if (props.goals === true) {

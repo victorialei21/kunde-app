@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import CheckBox from '@react-native-community/checkbox';
+import { CheckBox } from 'react-native-elements';
 
 import DefaultText from './DefaultText';
 import Colors from '../constants/Colors';
@@ -10,17 +10,23 @@ const TaskItem = (props) => {
 
 	return (
 		<View style={{ ...styles.item, ...props.style }}>
-			<View style={{ flex: 9 }}>
+			<View style={{ flex: 8 }}>
 				<DefaultText style={{ fontSize: 15 }}>{props.title}</DefaultText>
 			</View>
-			<View style={{ flex: 1 }}>
+			<View
+				style={{
+					flex: 1,
+				}}
+			>
 				<CheckBox
-					tintColors={{ true: 'black', false: 'black' }}
-					disabled={false}
-					value={toggleCheckBox}
-					onValueChange={() =>
+					checked={toggleCheckBox}
+					onPress={() =>
 						toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)
 					}
+					checkedIcon='check-square'
+					checkedColor='black'
+					uncheckedColor='black'
+					center
 				/>
 			</View>
 		</View>
@@ -34,7 +40,8 @@ const styles = StyleSheet.create({
 		padding: 10,
 		justifyContent: 'space-between',
 		width: '90%',
-		padding: 15,
+		paddingVertical: 5,
+		paddingHorizontal: 15,
 		borderRadius: 10,
 		margin: 10,
 		backgroundColor: Colors.yellow,
