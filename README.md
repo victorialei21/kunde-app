@@ -1,18 +1,18 @@
 # kunde-app (in progress)
 
-This is a mental wellness app for Kunde Social Cafe, which is based in Astana, Kazakhstan, geared toward those with intellectual disabilities. Its three main features include: pill reminders, mood tracking, and a task list.
+This is a mental wellness app for Kunde Social Cafe (an organization in Astana, Kazakhstan, that works to destigmatize disabilities and employ/rehabilitate people with disabilities) geared toward those with intellectual disabilities. Its three main features include pill reminders, mood tracking, and a task list.
 
 **Home Screen**
-![home](assets/preview/home.png)
+<img src="assets/preview/home.png" width="100">
 
 **Pill Reminder Screen**
-![pills](assets/preview/pills.png)
+<img src="assets/preview/pills.png" width="100">
 
 **Mood Tracking Screen**
-![mood](assets/preview/mood.png)
+<img src="assets/preview/mood.png" width="100">
 
 **Task List Screen**
-![tasks](assets/preview/tasks.png)
+<img src="assets/preview/tasks.png" width="100">
 
 **Settings Screen**
-![settings](assets/preview/settings.png)
+<img src="assets/preview/settings.png" width="100">
