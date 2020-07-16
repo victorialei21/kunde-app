@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import {
 	View,
-	Text,
 	StyleSheet,
-	TouchableWithoutFeedback,
-	Keyboard,
 	FlatList,
+	StatusBar,
+	Dimensions,
 } from 'react-native';
 
 import DefaultButton from '../components/DefaultButton';
@@ -15,63 +14,53 @@ import { TASKS } from '../data/dummy-data';
 
 const TasksScreen = (props) => {
 	const pastTasks = () => {
-		props.navigation.navigate('Past Tasks');
+		props.navigation.navigate('Completed Tasks');
 	};
 
 	return (
-		<TouchableWithoutFeedback
-			onPress={() => {
-				Keyboard.dismiss();
-			}}
-		>
-			<View style={styles.screen}>
-				<View style={styles.titleContainer}>
-					<Text style={styles.title}>To Do List</Text>
-				</View>
-				<View style={styles.listContainer}>
-					<FlatList
-						style={{ width: '100%' }}
-						data={TASKS}
-						renderItem={({ item }) => (
-							<View style={styles.itemContainer}>
-								<TaskItem title={item.title} />
-							</View>
-						)}
-						keyExtractor={(item) => item.id}
-					/>
-				</View>
-				<View>
-					<DefaultButton
-						title={'Completed Tasks'}
-						onPress={pastTasks}
-						style={{ margin: 20, padding: 5 }}
-					/>
-				</View>
+		<View style={styles.screen}>
+			<View style={styles.listContainer}>
+				<FlatList
+					style={{ width: '100%' }}
+					data={TASKS}
+					renderItem={({ item }) => (
+						<View style={styles.itemContainer}>
+							<TaskItem title={item.title} />
+						</View>
+					)}
+					keyExtractor={(item) => item.id}
+				/>
 			</View>
-		</TouchableWithoutFeedback>
+			<View style={styles.buttonContainer}>
+				<DefaultButton
+					title={'Completed Tasks'}
+					onPress={pastTasks}
+					style={{ margin: 20, padding: 5 }}
+				/>
+			</View>
+		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		justifyContent: 'flex-start',
+		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
 	},
-	title: {
-		fontFamily: 'rubik-medium',
-		fontSize: 20,
-		paddingTop: 10,
+	listContainer: {
+		width: '100%',
+		padding: 10,
+		marginTop: 10,
+		height: Dimensions.get('window').height * 0.65,
 	},
-	titleContainer: {
-		justifyContent: 'center',
-		padding: 20,
-		flex: 1,
-	},
-	listContainer: { flex: 12, width: '95%' },
 	itemContainer: {
 		alignItems: 'center',
+	},
+	buttonContainer: {
+		height: Dimensions.get('window').height * 0.1,
+		justifyContent: 'center',
 	},
 });
 

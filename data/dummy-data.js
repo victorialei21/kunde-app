@@ -32,6 +32,8 @@ export const TASKS = [
 		title: 'Write your some of your thoughts down will this fill over',
 		id: '6',
 	},
+	{ title: 'Filler goal', id: '7' },
+	{ title: 'Filler goal', id: '8' },
 ];
 
 export const PILLS = [

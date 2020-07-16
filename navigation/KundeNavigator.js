@@ -13,6 +13,10 @@ import SettingsScreen from '../screens/SettingsScreen';
 import PastTasksScreen from '../screens/PastTasksScreen';
 import AddNewPillScreen from '../screens/AddNewPillScreen';
 import Colors from '../constants/Colors';
+import ProfileScreen from '../screens/ProfileScreen';
+import TrackDataScreen from '../screens/TrackDataScreen';
+import SupervisorDetailsScreen from '../screens/SupervisorDetailsScreen';
+import AppInfoScreen from '../screens/AppInfoScreen';
 
 const MainStack = createStackNavigator();
 
@@ -54,15 +58,16 @@ function PillStackScreen() {
 						<MaterialCommunityIcons
 							name='plus-circle-outline'
 							color='black'
-							size={30}
+							size={20}
 							onPress={() => navigation.navigate('Add Pill')}
 						/>
 					),
-					headerRightContainerStyle: { padding: 15 },
+					headerRightContainerStyle: { paddingRight: 30, paddingBottom: 5 },
 				})}
 			/>
 			<PillStack.Screen
 				name='Add Pill'
+				ç
 				component={AddNewPillScreen}
 				options={({ navigation }) => ({
 					title: 'Add New Pill',
@@ -111,9 +116,9 @@ function TasksStackScreen() {
 				}}
 			/>
 			<TasksStack.Screen
-				name='Past Tasks'
+				name='Completed Tasks'
 				component={PastTasksScreen}
-				options={{ title: 'Past Tasks' }}
+				options={{ title: 'Completed Tasks' }}
 			/>
 		</TasksStack.Navigator>
 	);
@@ -134,6 +139,22 @@ function SettingsStackScreen() {
 				component={SettingsScreen}
 				options={{
 					title: 'Settings',
+				}}
+			/>
+			<SettingsStack.Screen name='Profile' component={ProfileScreen} />
+			<SettingsStack.Screen name='Track Data' component={TrackDataScreen} />
+			<SettingsStack.Screen
+				name='Supervisor'
+				component={SupervisorDetailsScreen}
+				options={{
+					title: 'Supervisor Details',
+				}}
+			/>
+			<SettingsStack.Screen
+				name='App Info'
+				component={AppInfoScreen}
+				options={{
+					title: 'App Information',
 				}}
 			/>
 		</SettingsStack.Navigator>

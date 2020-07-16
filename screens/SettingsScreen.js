@@ -22,11 +22,23 @@ const SettingsScreen = (props) => {
 				<DefaultText style={{ fontSize: 15 }}>First Name</DefaultText>
 			</View>
 			<View style={styles.container}>
-				<SettingItem title='Profile' />
-				<SettingItem title='Track Data' />
+				<SettingItem
+					title='Profile'
+					onPress={() => props.navigation.navigate('Profile')}
+				/>
+				<SettingItem
+					title='Track Data'
+					onPress={() => props.navigation.navigate('Track Data')}
+				/>
 				<SettingItem title='Notification Settings' />
-				<SettingItem title='Supervisor Details' />
-				<SettingItem title='App Information' />
+				<SettingItem
+					title='Supervisor Details'
+					onPress={() => props.navigation.navigate('Supervisor')}
+				/>
+				<SettingItem
+					title='App Information'
+					onPress={() => props.navigation.navigate('App Info')}
+				/>
 				<SettingItem title='Logout' />
 			</View>
 		</View>

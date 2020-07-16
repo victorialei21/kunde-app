@@ -127,13 +127,7 @@ const MoodTrackerScreen = (props) => {
 							labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'],
 							datasets: [
 								{
-									data: [
-										Math.ceil(Math.random() * 5),
-										Math.ceil(Math.random() * 5),
-										Math.ceil(Math.random() * 5),
-										Math.ceil(Math.random() * 5),
-										Math.ceil(Math.random() * 5),
-									],
+									data: [1, 5, 3, 3, 4],
 									strokeWidth: 2,
 								},
 							],
