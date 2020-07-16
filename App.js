@@ -4,6 +4,7 @@ import { AppLoading } from 'expo';
 import { enableScreens } from 'react-native-screens';
 
 import KundeNavigator from './navigation/KundeNavigator';
+import LoginScreen from './screens/LoginScreen';
 
 enableScreens();
 
@@ -27,5 +28,5 @@ export default function App() {
 		);
 	}
 
-	return <KundeNavigator />;
+	return <LoginScreen />;
 }

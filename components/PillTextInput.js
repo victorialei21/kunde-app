@@ -9,7 +9,7 @@ const PillTextInput = (props) => {
 			<DefaultText>{props.title}</DefaultText>
 			<TextInput
 				{...props}
-				placeholder={'Type Here'}
+				placeholder='Type Here'
 				multiline={false}
 				style={styles.input}
 			/>

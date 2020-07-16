@@ -17,6 +17,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import TrackDataScreen from '../screens/TrackDataScreen';
 import SupervisorDetailsScreen from '../screens/SupervisorDetailsScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 const MainStack = createStackNavigator();
 
