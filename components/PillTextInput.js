@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		alignItems: 'center',
 		width: '100%',
-		margin: 10,
+		margin: 5,
 		borderBottomWidth: 0.5,
-		padding: 10,
+		padding: 5,
 	},
 });
 

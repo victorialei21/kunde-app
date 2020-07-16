@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
 import DefaultText from './DefaultText';
@@ -7,6 +7,17 @@ import Colors from '../constants/Colors';
 
 const TaskItem = (props) => {
 	const [toggleCheckBox, setToggleCheckBox] = useState(false);
+
+	const displayAffirmation = () =>
+		Alert.alert('Congrats!', 'Insert positive affirmation here');
+
+	const onComplete = () => {
+		toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true);
+
+		if (toggleCheckBox === false) {
+			displayAffirmation();
+		}
+	};
 
 	if (props.completed === true) {
 		return (
@@ -38,9 +49,7 @@ const TaskItem = (props) => {
 			>
 				<CheckBox
 					checked={toggleCheckBox}
-					onPress={() =>
-						toggleCheckBox ? setToggleCheckBox(false) : setToggleCheckBox(true)
-					}
+					onPress={onComplete}
 					checkedIcon='check-square'
 					checkedColor='black'
 					uncheckedColor='black'

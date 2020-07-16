@@ -29,7 +29,7 @@ const AddNewPillScreen = (props) => {
 			}}
 		>
 			<KeyboardAvoidingView style={styles.screen} behavior='height'>
-				<Text style={styles.title}>Please Enter Pill Details</Text>
+				<Text style={styles.title}>Enter Pill Details</Text>
 				<View style={styles.inputContainer}>
 					<PillTextInput title='Name' />
 					<PillTextInput title='Dosage (mg)' keyboardType='number-pad' />

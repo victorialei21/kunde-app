@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
 import DefaultText from './DefaultText';
@@ -9,7 +9,7 @@ const PillItem = (props) => {
 	const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
 	return (
-		<View style={styles.pillBox}>
+		<TouchableOpacity style={styles.pillBox} onPress={props.onPress}>
 			<View style={styles.pillItem}>
 				<DefaultText style={{ fontFamily: 'rubik-medium' }}>
 					{props.title} {`(${props.quantity})`}
@@ -28,7 +28,7 @@ const PillItem = (props) => {
 					center
 				/>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 

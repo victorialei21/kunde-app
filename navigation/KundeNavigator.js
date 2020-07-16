@@ -18,25 +18,26 @@ import TrackDataScreen from '../screens/TrackDataScreen';
 import SupervisorDetailsScreen from '../screens/SupervisorDetailsScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
 import LoginScreen from '../screens/LoginScreen';
+import EditPillScreen from '../screens/EditPillScreen';
 
-const MainStack = createStackNavigator();
+const HomeStack = createStackNavigator();
 
-function MainStackScreen() {
+function HomeStackScreen() {
 	return (
-		<MainStack.Navigator
+		<HomeStack.Navigator
 			screenOptions={{
 				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
 				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
-			<MainStack.Screen
+			<HomeStack.Screen
 				name='Home'
 				component={MainScreen}
 				options={{
 					title: 'Home',
 				}}
 			/>
-		</MainStack.Navigator>
+		</HomeStack.Navigator>
 	);
 }
 
@@ -68,10 +69,16 @@ function PillStackScreen() {
 			/>
 			<PillStack.Screen
 				name='Add Pill'
-				ç
 				component={AddNewPillScreen}
 				options={({ navigation }) => ({
 					title: 'Add New Pill',
+				})}
+			/>
+			<PillStack.Screen
+				name='Edit Pill'
+				component={EditPillScreen}
+				options={({ navigation }) => ({
+					title: 'Edit Pill Details',
 				})}
 			/>
 		</PillStack.Navigator>
@@ -164,9 +171,9 @@ function SettingsStackScreen() {
 
 const Tab = createMaterialBottomTabNavigator();
 
-function KundeNavigator() {
+function TabNavigator() {
 	return (
-		<NavigationContainer>
+		<NavigationContainer independent={true}>
 			<Tab.Navigator
 				shifting={true}
 				activeColor={'black'}
@@ -174,7 +181,7 @@ function KundeNavigator() {
 			>
 				<Tab.Screen
 					name='Home'
-					component={MainStackScreen}
+					component={HomeStackScreen}
 					options={{
 						tabBarLabel: <Text>Home</Text>,
 						tabBarIcon: (tabInfo) => (
@@ -240,6 +247,23 @@ function KundeNavigator() {
 					}}
 				/>
 			</Tab.Navigator>
+		</NavigationContainer>
+	);
+}
+
+const MainNavigator = createStackNavigator();
+
+function KundeNavigator() {
+	return (
+		<NavigationContainer independent={true}>
+			<MainNavigator.Navigator
+				screenOptions={{
+					headerShown: false,
+				}}
+			>
+				<MainNavigator.Screen name='Login' component={LoginScreen} />
+				<MainNavigator.Screen name='Main' component={TabNavigator} />
+			</MainNavigator.Navigator>
 		</NavigationContainer>
 	);
 }

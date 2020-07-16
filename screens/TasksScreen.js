@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-	View,
-	StyleSheet,
-	FlatList,
-	StatusBar,
-	Dimensions,
-} from 'react-native';
+import { View, StyleSheet, FlatList, Alert, Dimensions } from 'react-native';
 
 import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
@@ -13,9 +7,7 @@ import TaskItem from '../components/TaskItem';
 import { TASKS } from '../data/dummy-data';
 
 const TasksScreen = (props) => {
-	const pastTasks = () => {
-		props.navigation.navigate('Completed Tasks');
-	};
+	const affirmation = () => Alert.alert('Congrats!');
 
 	return (
 		<View style={styles.screen}>
@@ -34,7 +26,7 @@ const TasksScreen = (props) => {
 			<View style={styles.buttonContainer}>
 				<DefaultButton
 					title={'Completed Tasks'}
-					onPress={pastTasks}
+					onPress={() => props.navigation.navigate('Completed Tasks')}
 					style={{ margin: 20, padding: 5 }}
 				/>
 			</View>

@@ -35,7 +35,11 @@ const LoginScreen = (props) => {
 						/>
 					</View>
 				</View>
-				<DefaultButton title='Log In' style={{ width: 90 }} />
+				<DefaultButton
+					title='Log In'
+					style={{ width: 90 }}
+					onPress={() => props.navigation.replace('Main')}
+				/>
 			</KeyboardAvoidingView>
 		</TouchableWithoutFeedback>
 	);

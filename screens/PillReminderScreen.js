@@ -22,6 +22,7 @@ const PillReminderScreen = (props) => {
 								title={item.title}
 								time={item.time}
 								quantity={item.quantity}
+								onPress={() => props.navigation.navigate('Edit Pill')}
 							/>
 						</View>
 					)}
