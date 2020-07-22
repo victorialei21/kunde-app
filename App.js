@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { enableScreens } from 'react-native-screens';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 
 import KundeNavigator from './navigation/KundeNavigator';
-import LoginScreen from './screens/LoginScreen';
+import moodsReducer from './store/reducers/moods';
+import { addMood } from './store/actions/moods';
 
 enableScreens();
+
+const rootReducer = combineReducers({
+	moodsReducer,
+});
+
+const store = createStore(rootReducer);
 
 const fetchFonts = () => {
 	return Font.loadAsync({
@@ -28,5 +37,17 @@ export default function App() {
 		);
 	}
 
-	return <KundeNavigator />;
+	console.log(store.getState());
+
+	const unsubscribe = store.subscribe(() => console.log(store.getState()));
+
+	store.dispatch(addMood(5));
+
+	unsubscribe();
+
+	return (
+		<Provider store={store}>
+			<KundeNavigator />
+		</Provider>
+	);
 }

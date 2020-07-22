@@ -4,10 +4,11 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import InformationRect from '../components/InformationRect';
 import InformationBox from '../components/InformationBox';
 import { AFFIRMATIONS, TASKS, PILLS } from '../data/dummy-data';
-import DateText from '../components/DateText';
 import Colors from '../constants/Colors';
 
 const MainScreen = (props) => {
+	const todaysInfoContent = {};
+
 	return (
 		<ScrollView>
 			<View style={styles.screen}>
@@ -16,31 +17,29 @@ const MainScreen = (props) => {
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
-						header={'Affirmation of the Day'}
+						header='Affirmation of the Day'
 						content={AFFIRMATIONS[0]}
 						affirmation={true}
 					/>
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
-						header={"Today's Information"}
-						content={
-							<DateText style={{ fontSize: 15, fontFamily: 'rubik-regular' }} />
-						}
+						header="Today's Overview"
+						content="You have: XXX pills to take and you've submitted your mood XX times so far today"
 						style={{ backgroundColor: Colors.blue }}
 					/>
 				</View>
 				<View style={styles.boxContainer}>
 					<InformationBox
-						header={'Next Pill'}
+						header='Next Pill'
 						content={`${PILLS[0].title}, ${PILLS[0].time}`}
 						onSelect={() => {
 							props.navigation.navigate('Pills');
 						}}
 					/>
 					<InformationBox
-						header={'Mood Tracker'}
-						content={'How are you feeling right now? Click to rate your mood!'}
+						header='Mood Tracker'
+						content='How are you feeling right now? Click to rate your mood!'
 						onSelect={() => {
 							props.navigation.navigate('Mood');
 						}}
@@ -49,7 +48,7 @@ const MainScreen = (props) => {
 				<View style={styles.rectContainer}>
 					<InformationRect
 						goals={true}
-						header={'Upcoming Task'}
+						header='Upcoming Task'
 						content={TASKS[0].title}
 						onSelect={() => {
 							props.navigation.navigate('Tasks');
@@ -59,7 +58,7 @@ const MainScreen = (props) => {
 				<View style={styles.rectContainer}>
 					<InformationRect
 						kunde={true}
-						header={'Learn More about Kunde Social Cafe!'}
+						header='Learn More about Kunde Social Cafe!'
 						style={{ backgroundColor: Colors.blue }}
 					/>
 				</View>

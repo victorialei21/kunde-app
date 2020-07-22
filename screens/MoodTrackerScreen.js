@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Alert, Dimensions } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
+import { useSelector, useDispatch } from 'react-redux';
 
 import MoodButton from '../components/MoodButton';
 import DefaultText from '../components/DefaultText';
 import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
+import { addMood } from '../store/actions/moods';
 
 const MoodTrackerScreen = (props) => {
+	// const storedMoods = useSelector((state) => state.moodsReducer.moods);
+	// const dispatch = useDispatch();
+
 	const [mood, setMood] = useState(0);
 
 	const moodSubmitAlert = () => {
@@ -39,18 +44,16 @@ const MoodTrackerScreen = (props) => {
 		}
 	};
 
-	const moodHandler = (value) => {
-		setMood(value);
-	};
+	// const submitMoodHandler = useCallback(
+	// 	(value) => {
+	// 		dispatch(addMood(value));
+	// 		setMood(value);
+	// 	},
+	// 	[dispatch, value]
+	// );
 
-	const line = {
-		labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-		datasets: [
-			{
-				data: [20, 45, 28, 80, 99, 43],
-				strokeWidth: 2, // optional
-			},
-		],
+	const submitMoodHandler = (value) => {
+		setMood(value);
 	};
 
 	return (
@@ -62,7 +65,11 @@ const MoodTrackerScreen = (props) => {
 				<View style={styles.buttonsContainer}>
 					<MoodButton
 						name='emoticon-angry-outline'
-						onPress={mood !== 1 ? () => moodHandler(1) : () => moodHandler(0)}
+						onPress={
+							mood !== 1
+								? () => submitMoodHandler(1)
+								: () => submitMoodHandler(0)
+						}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -71,7 +78,11 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='emoji-sad'
-						onPress={mood !== 2 ? () => moodHandler(2) : () => moodHandler(0)}
+						onPress={
+							mood !== 2
+								? () => submitMoodHandler(2)
+								: () => submitMoodHandler(0)
+						}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -80,7 +91,11 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='emoji-neutral'
-						onPress={mood !== 3 ? () => moodHandler(3) : () => moodHandler(0)}
+						onPress={
+							mood !== 3
+								? () => submitMoodHandler(3)
+								: () => submitMoodHandler(0)
+						}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -89,7 +104,11 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='emoji-happy'
-						onPress={mood !== 4 ? () => moodHandler(4) : () => moodHandler(0)}
+						onPress={
+							mood !== 4
+								? () => submitMoodHandler(4)
+								: () => submitMoodHandler(0)
+						}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -98,7 +117,11 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='tag-faces'
-						onPress={mood !== 5 ? () => moodHandler(5) : () => moodHandler(0)}
+						onPress={
+							mood !== 5
+								? () => submitMoodHandler(5)
+								: () => submitMoodHandler(0)
+						}
 						style={{
 							padding: 2,
 							backgroundColor:

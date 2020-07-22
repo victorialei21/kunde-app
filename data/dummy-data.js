@@ -86,3 +86,21 @@ export const PILLS = [
 		quantity: 2,
 	},
 ];
+
+export const MOODS = [
+	{
+		value: 1,
+	},
+	{
+		value: 3,
+	},
+	{
+		value: 5,
+	},
+	{
+		value: 4,
+	},
+	{
+		value: 4,
+	},
+];

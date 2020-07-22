@@ -79,7 +79,11 @@ const InformationRect = (props) => {
 				<View style={styles.headerContainer}>
 					<Text style={styles.header}>{props.header}</Text>
 				</View>
-				<View style={{ margin: 5 }}>{props.content}</View>
+				<View style={{ margin: 5 }}>
+					<DefaultText style={{ textAlign: 'center' }}>
+						{props.content}
+					</DefaultText>
+				</View>
 			</View>
 		);
 	}
