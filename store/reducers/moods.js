@@ -12,6 +12,7 @@ const moodsReducer = (state = initialState, action) => {
 					...state.moods,
 					{
 						value: action.value,
+						time: action.time,
 					},
 				],
 			});

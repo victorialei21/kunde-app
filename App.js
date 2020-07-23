@@ -37,13 +37,11 @@ export default function App() {
 		);
 	}
 
-	console.log(store.getState());
+	// const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
-	const unsubscribe = store.subscribe(() => console.log(store.getState()));
+	// store.dispatch(addMood(3, '2:20'));
 
-	store.dispatch(addMood(5));
-
-	unsubscribe();
+	// unsubscribe();
 
 	return (
 		<Provider store={store}>

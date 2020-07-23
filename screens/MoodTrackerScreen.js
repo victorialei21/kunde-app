@@ -8,33 +8,44 @@ import DefaultText from '../components/DefaultText';
 import DefaultButton from '../components/DefaultButton';
 import Colors from '../constants/Colors';
 import { addMood } from '../store/actions/moods';
+import { set } from 'react-native-reanimated';
 
 const MoodTrackerScreen = (props) => {
-	// const storedMoods = useSelector((state) => state.moodsReducer.moods);
-	// const dispatch = useDispatch();
+	//global state
+	const storedMoods = useSelector((state) => state.moods);
+	const dispatch = useDispatch();
 
+	const addAMood = useCallback(
+		(mood, time) => {
+			addMood(mood, time);
+			setMood(mood);
+			//console.log(mood);
+		},
+		[dispatch]
+	);
+
+	//local state
 	const [mood, setMood] = useState(0);
 
-	const moodSubmitAlert = () => {
+	//properly formmated timee generator function
+	function timeText() {
 		const currentTime = new Date();
 		const hours = currentTime.getHours();
-
-		function minutesWithZeroes(currentTime) {
+		const minutesWithZeroes = (currentTime) => {
 			return (
 				(currentTime.getMinutes() < 10 ? '0' : '') + currentTime.getMinutes()
 			);
-		}
+		};
+		return `${hours}:${minutesWithZeroes(currentTime)}`;
+	}
 
+	//on press submit button
+	const moodSubmitAlert = () => {
 		if (mood !== 0) {
 			setMood(0);
 			return Alert.alert(
 				'Success!',
-				'You submitted your mood of ' +
-					mood +
-					' at ' +
-					hours +
-					':' +
-					minutesWithZeroes(currentTime)
+				'You submitted your mood of ' + mood + ' at ' + timeText()
 			);
 		} else {
 			return Alert.alert(
@@ -44,16 +55,9 @@ const MoodTrackerScreen = (props) => {
 		}
 	};
 
-	// const submitMoodHandler = useCallback(
-	// 	(value) => {
-	// 		dispatch(addMood(value));
-	// 		setMood(value);
-	// 	},
-	// 	[dispatch, value]
-	// );
-
-	const submitMoodHandler = (value) => {
-		setMood(value);
+	//reset screen
+	const setMoodToZero = () => {
+		setMood(0);
 	};
 
 	return (
@@ -66,9 +70,7 @@ const MoodTrackerScreen = (props) => {
 					<MoodButton
 						name='emoticon-angry-outline'
 						onPress={
-							mood !== 1
-								? () => submitMoodHandler(1)
-								: () => submitMoodHandler(0)
+							mood !== 1 ? () => addAMood(1, timeText()) : () => setMoodToZero()
 						}
 						style={{
 							padding: 2,
@@ -79,9 +81,7 @@ const MoodTrackerScreen = (props) => {
 					<MoodButton
 						name='emoji-sad'
 						onPress={
-							mood !== 2
-								? () => submitMoodHandler(2)
-								: () => submitMoodHandler(0)
+							mood !== 2 ? () => addAMood(2, timeText()) : () => setMoodToZero()
 						}
 						style={{
 							padding: 2,
@@ -92,9 +92,7 @@ const MoodTrackerScreen = (props) => {
 					<MoodButton
 						name='emoji-neutral'
 						onPress={
-							mood !== 3
-								? () => submitMoodHandler(3)
-								: () => submitMoodHandler(0)
+							mood !== 3 ? () => addAMood(3, timeText()) : () => setMoodToZero()
 						}
 						style={{
 							padding: 2,
@@ -105,9 +103,7 @@ const MoodTrackerScreen = (props) => {
 					<MoodButton
 						name='emoji-happy'
 						onPress={
-							mood !== 4
-								? () => submitMoodHandler(4)
-								: () => submitMoodHandler(0)
+							mood !== 4 ? () => addAMood(4, timeText()) : () => setMoodToZero()
 						}
 						style={{
 							padding: 2,
@@ -118,9 +114,7 @@ const MoodTrackerScreen = (props) => {
 					<MoodButton
 						name='tag-faces'
 						onPress={
-							mood !== 5
-								? () => submitMoodHandler(5)
-								: () => submitMoodHandler(0)
+							mood !== 5 ? () => addAMood(5, timeText()) : () => setMoodToZero()
 						}
 						style={{
 							padding: 2,
@@ -150,7 +144,7 @@ const MoodTrackerScreen = (props) => {
 							labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'],
 							datasets: [
 								{
-									data: [1, 5, 3, 3, 4],
+									data: [1, 2, 3, 4, 5],
 									strokeWidth: 2,
 								},
 							],
