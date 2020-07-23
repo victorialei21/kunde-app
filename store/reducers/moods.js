@@ -7,12 +7,14 @@ const initialState = {
 const moodsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_MOOD:
+			const addedMoodValue = action.value;
+			const addedMoodTime = action.time;
 			return Object.assign({}, state, {
 				moods: [
 					...state.moods,
 					{
-						value: action.value,
-						time: action.time,
+						value: addedMoodValue,
+						time: addedMoodTime,
 					},
 				],
 			});

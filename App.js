@@ -7,12 +7,11 @@ import { Provider } from 'react-redux';
 
 import KundeNavigator from './navigation/KundeNavigator';
 import moodsReducer from './store/reducers/moods';
-import { addMood } from './store/actions/moods';
 
 enableScreens();
 
 const rootReducer = combineReducers({
-	moodsReducer,
+	moods: moodsReducer,
 });
 
 const store = createStore(rootReducer);
@@ -36,12 +35,6 @@ export default function App() {
 			/>
 		);
 	}
-
-	// const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-	// store.dispatch(addMood(3, '2:20'));
-
-	// unsubscribe();
 
 	return (
 		<Provider store={store}>

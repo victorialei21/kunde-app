@@ -1,25 +1,23 @@
 import React, { useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Alert, Dimensions } from 'react-native';
-import { LineChart } from 'react-native-chart-kit';
 import { useSelector, useDispatch } from 'react-redux';
 
 import MoodButton from '../components/MoodButton';
 import DefaultText from '../components/DefaultText';
 import DefaultButton from '../components/DefaultButton';
+import MoodGraph from '../components/MoodGraph';
 import Colors from '../constants/Colors';
 import { addMood } from '../store/actions/moods';
-import { set } from 'react-native-reanimated';
 
 const MoodTrackerScreen = (props) => {
 	//global state
-	const storedMoods = useSelector((state) => state.moods);
+	const storedMoods = useSelector((state) => state.moods.moods);
 	const dispatch = useDispatch();
 
-	const addAMood = useCallback(
-		(mood, time) => {
-			addMood(mood, time);
-			setMood(mood);
-			//console.log(mood);
+	const addMoodHandler = useCallback(
+		(value, time) => {
+			dispatch(addMood(value, time));
+			moodSubmitAlert(value, time);
 		},
 		[dispatch]
 	);
@@ -40,12 +38,12 @@ const MoodTrackerScreen = (props) => {
 	}
 
 	//on press submit button
-	const moodSubmitAlert = () => {
+	const moodSubmitAlert = (mood, time) => {
 		if (mood !== 0) {
 			setMood(0);
 			return Alert.alert(
 				'Success!',
-				'You submitted your mood of ' + mood + ' at ' + timeText()
+				'You submitted your mood of ' + mood + ' at ' + time
 			);
 		} else {
 			return Alert.alert(
@@ -55,9 +53,9 @@ const MoodTrackerScreen = (props) => {
 		}
 	};
 
-	//reset screen
-	const setMoodToZero = () => {
-		setMood(0);
+	//set mood in local state
+	const moodSetter = (val) => {
+		setMood(val);
 	};
 
 	return (
@@ -69,9 +67,7 @@ const MoodTrackerScreen = (props) => {
 				<View style={styles.buttonsContainer}>
 					<MoodButton
 						name='emoticon-angry-outline'
-						onPress={
-							mood !== 1 ? () => addAMood(1, timeText()) : () => setMoodToZero()
-						}
+						onPress={mood !== 1 ? () => moodSetter(1) : () => moodSetter(0)}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -80,9 +76,7 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='emoji-sad'
-						onPress={
-							mood !== 2 ? () => addAMood(2, timeText()) : () => setMoodToZero()
-						}
+						onPress={mood !== 2 ? () => moodSetter(2) : () => moodSetter(0)}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -91,9 +85,7 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='emoji-neutral'
-						onPress={
-							mood !== 3 ? () => addAMood(3, timeText()) : () => setMoodToZero()
-						}
+						onPress={mood !== 3 ? () => moodSetter(3) : () => moodSetter(0)}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -102,9 +94,7 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='emoji-happy'
-						onPress={
-							mood !== 4 ? () => addAMood(4, timeText()) : () => setMoodToZero()
-						}
+						onPress={mood !== 4 ? () => moodSetter(4) : () => moodSetter(0)}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -113,9 +103,7 @@ const MoodTrackerScreen = (props) => {
 					/>
 					<MoodButton
 						name='tag-faces'
-						onPress={
-							mood !== 5 ? () => addAMood(5, timeText()) : () => setMoodToZero()
-						}
+						onPress={mood !== 5 ? () => moodSetter(5) : () => moodSetter(0)}
 						style={{
 							padding: 2,
 							backgroundColor:
@@ -132,47 +120,17 @@ const MoodTrackerScreen = (props) => {
 				</View>
 			</View>
 			<View style={styles.submitButtonContainer}>
-				<DefaultButton title={'Submit Mood'} onPress={moodSubmitAlert} />
+				<DefaultButton
+					title={'Submit Mood'}
+					onPress={() => addMoodHandler(mood, timeText())}
+				/>
 			</View>
 			<View style={styles.chartContainer}>
 				<View>
 					<Text style={styles.title}>Mood Summary—Five Past Entries</Text>
 				</View>
 				<View>
-					<LineChart
-						data={{
-							labels: ['Time 1', 'Time 2', 'Time 3', 'Time 4', 'Time 5'],
-							datasets: [
-								{
-									data: [1, 2, 3, 4, 5],
-									strokeWidth: 2,
-								},
-							],
-						}}
-						width={Dimensions.get('window').width * 0.85}
-						height={200}
-						chartConfig={{
-							backgroundGradientFrom: Colors.white,
-							backgroundGradientTo: Colors.white,
-							decimalPlaces: 0,
-							color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-						}}
-						yLabelsOffset={18}
-						bezier
-						style={{
-							marginVertical: 10,
-							borderRadius: 10,
-							overflow: 'hidden',
-							shadowColor: '#000',
-							shadowOffset: {
-								width: 0,
-								height: 2,
-							},
-							shadowOpacity: 0.25,
-							shadowRadius: 3,
-							elevation: 5,
-						}}
-					/>
+					<MoodGraph />
 				</View>
 			</View>
 		</View>
