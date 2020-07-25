@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 
-import Colors from '../constants/Colors';
-import TaskItem from '../components/TaskItem';
-import { TASKS } from '../data/dummy-data';
+import Colors from '../../constants/Colors';
+import TaskItem from '../../components/TaskItem';
+import { TASKS } from '../../data/dummy-data';
 
 const PastTasksScreen = (props) => {
 	return (

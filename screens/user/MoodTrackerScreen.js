@@ -2,12 +2,12 @@ import React, { useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Alert, Dimensions } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
-import MoodButton from '../components/MoodButton';
-import DefaultText from '../components/DefaultText';
-import DefaultButton from '../components/DefaultButton';
-import MoodGraph from '../components/MoodGraph';
-import Colors from '../constants/Colors';
-import { addMood } from '../store/actions/moods';
+import MoodButton from '../../components/MoodButton';
+import DefaultText from '../../components/DefaultText';
+import DefaultButton from '../../components/DefaultButton';
+import MoodGraph from '../../components/MoodGraph';
+import Colors from '../../constants/Colors';
+import { addMood } from '../../store/actions/moods';
 
 const MoodTrackerScreen = (props) => {
 	//global state

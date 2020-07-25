@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 
-import DateText from '../components/DateText';
-import { PILLS } from '../data/dummy-data';
-import Colors from '../constants/Colors';
-import PillItem from '../components/PillItem';
+import DateText from '../../components/DateText';
+import { PILLS } from '../../data/dummy-data';
+import Colors from '../../constants/Colors';
+import PillItem from '../../components/PillItem';
 
 const PillReminderScreen = (props) => {
 	return (
@@ -22,7 +22,7 @@ const PillReminderScreen = (props) => {
 								title={item.title}
 								time={item.time}
 								quantity={item.quantity}
-								onPress={() => props.navigation.navigate('Edit Pill')}
+								onPress={() => props.navigation.navigate('Pill Details')}
 							/>
 						</View>
 					)}

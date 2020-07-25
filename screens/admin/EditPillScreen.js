@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
-const ProfileScreen = (props) => {
+const EditPillScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<View></View>
+			<Text>Edit Pill</Text>
 		</View>
 	);
 };
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ProfileScreen;
+export default EditPillScreen;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, Image, Alert } from 'react-native';
 
-import DefaultText from '../components/DefaultText';
-import Colors from '../constants/Colors';
-import SettingItem from '../components/SettingItem';
+import DefaultText from '../../components/DefaultText';
+import Colors from '../../constants/Colors';
+import SettingItem from '../../components/SettingItem';
 
 const SettingsScreen = (props) => {
 	const logout = () => {

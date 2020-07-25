@@ -19,7 +19,6 @@ export const AFFIRMATIONS = [
 	'I find peace and joy in all aspects of my life',
 	'I have value and I matter',
 	'I am a success in all that I do',
-	'I am happy',
 ];
 
 export const TASKS = [
@@ -84,23 +83,5 @@ export const PILLS = [
 		title: 'Amoxicillin',
 		time: '9:00 AM',
 		quantity: 2,
-	},
-];
-
-export const MOODS = [
-	{
-		value: 1,
-	},
-	{
-		value: 3,
-	},
-	{
-		value: 5,
-	},
-	{
-		value: 4,
-	},
-	{
-		value: 4,
 	},
 ];

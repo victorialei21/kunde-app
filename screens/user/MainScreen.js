@@ -1,13 +1,31 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useSelector } from 'react-redux';
 
-import InformationRect from '../components/InformationRect';
-import InformationBox from '../components/InformationBox';
-import { AFFIRMATIONS, TASKS, PILLS } from '../data/dummy-data';
-import Colors from '../constants/Colors';
+import InformationRect from '../../components/InformationRect';
+import InformationBox from '../../components/InformationBox';
+import { AFFIRMATIONS, TASKS, PILLS } from '../../data/dummy-data';
+import Colors from '../../constants/Colors';
 
 const MainScreen = (props) => {
-	const todaysInfoContent = {};
+	const randomInt = Math.floor(Math.random() * 18);
+	const moods = useSelector((state) => state.moods.moods);
+	const size = moods.length;
+
+	const calculateMoodAverage = () => {
+		if (size < 5) {
+			const lastFiveMoodsSum =
+				moods[size - 1].value +
+				moods[size - 2].value +
+				moods[size - 3].value +
+				moods[size - 4].value +
+				moods[size - 5].value;
+			const moodAverage = lastFiveMoodsSum / 5;
+			return `Your last five mood submissions have averaged at ${moodAverage}`;
+		} else {
+			return 'Please submit at least 5 moods to display a calculated average.';
+		}
+	};
 
 	return (
 		<ScrollView>
@@ -18,14 +36,14 @@ const MainScreen = (props) => {
 				<View style={styles.rectContainer}>
 					<InformationRect
 						header='Affirmation of the Day'
-						content={AFFIRMATIONS[0]}
+						content={AFFIRMATIONS[randomInt]}
 						affirmation={true}
 					/>
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
 						header="Today's Overview"
-						content="You have: XXX pills to take and you've submitted your mood XX times so far today"
+						content={`You have ${PILLS.length} pills to take today.`}
 						style={{ backgroundColor: Colors.blue }}
 					/>
 				</View>

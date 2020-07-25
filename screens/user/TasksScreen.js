@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, Alert, Dimensions } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, FlatList, Dimensions } from 'react-native';
 
-import DefaultButton from '../components/DefaultButton';
-import Colors from '../constants/Colors';
-import TaskItem from '../components/TaskItem';
-import { TASKS } from '../data/dummy-data';
+import DefaultButton from '../../components/DefaultButton';
+import Colors from '../../constants/Colors';
+import TaskItem from '../../components/TaskItem';
+import { TASKS } from '../../data/dummy-data';
 
 const TasksScreen = (props) => {
-	const affirmation = () => Alert.alert('Congrats!');
-
 	return (
 		<View style={styles.screen}>
 			<View style={styles.listContainer}>

@@ -8,11 +8,11 @@ import {
 	KeyboardAvoidingView,
 } from 'react-native';
 
-import DefaultButton from '../components/DefaultButton';
-import PillTextInput from '../components/PillTextInput';
-import Colors from '../constants/Colors';
+import DefaultButton from '../../components/DefaultButton';
+import PillTextInput from '../../components/PillTextInput';
+import Colors from '../../constants/Colors';
 
-const AddNewPillScreen = (props) => {
+const AddTaskScreen = (props) => {
 	const [pillReminders, setPillReminders] = useState([]);
 
 	const addPillHandler = () => {
@@ -66,4 +66,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default AddNewPillScreen;
+export default AddTaskScreen;

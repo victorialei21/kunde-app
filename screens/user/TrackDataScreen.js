@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Switch } from 'react-native';
 
-import Colors from '../constants/Colors';
-import DefaultText from '../components/DefaultText';
+import Colors from '../../constants/Colors';
+import DefaultText from '../../components/DefaultText';
 
 const TrackDataScreen = (props) => {
 	const [trackingData, setTrackingData] = useState(false);
