@@ -5,19 +5,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-import TasksScreen from '../screens/user/TasksScreen';
-import MainScreen from '../screens/user/MainScreen';
-import MoodTrackerScreen from '../screens/user/MoodTrackerScreen';
+import UserOverviewScreen from '../screens/admin/UserOverviewScreen';
 import SettingsScreen from '../screens/user/SettingsScreen';
-import AddNewPillScreen from '../screens/admin/AddNewPillScreen';
-import Colors from '../constants/Colors';
+import AddPillScreen from '../screens/admin/AddPillScreen';
 import ProfileScreen from '../screens/user/ProfileScreen';
 import TrackDataScreen from '../screens/user/TrackDataScreen';
-import SupervisorDetailsScreen from '../screens/user/SupervisorDetailsScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
 import EditPillScreen from '../screens/admin/EditPillScreen';
 import PillOverviewScreen from '../screens/admin/PillOverviewScreen';
 import AddTaskScreen from '../screens/admin/AddTaskScreen';
+import UserDetailScreen from '../screens/admin/UserDetailScreen';
+import MoodOverviewScreen from '../screens/admin/MoodOverviewScreen';
+import TasksOverviewScreen from '../screens/admin/TasksOverviewScreen';
+import Colors from '../constants/Colors';
 
 const AdminHomeStack = createStackNavigator();
 
@@ -29,83 +29,24 @@ function AdminHomeStackScreen() {
 				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
-			<AdminHomeStack.Screen name='Home' component={MainScreen} />
-		</AdminHomeStack.Navigator>
-	);
-}
-
-const AdminPillStack = createStackNavigator();
-
-function AdminPillStackScreen() {
-	return (
-		<AdminPillStack.Navigator
-			screenOptions={{
-				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.background },
-			}}
-		>
-			<AdminPillStack.Screen
-				name='Pills'
+			<AdminHomeStack.Screen name='Home' component={UserOverviewScreen} />
+			<AdminHomeStack.Screen name='User Details' component={UserDetailScreen} />
+			<AdminHomeStack.Screen
+				name='Mood Overview'
+				component={MoodOverviewScreen}
+			/>
+			<AdminHomeStack.Screen
+				name='Pill Overview'
 				component={PillOverviewScreen}
-				options={({ navigation }) => ({
-					title: 'Pill Reminders',
-					headerRight: (tabInfo) => (
-						<MaterialCommunityIcons
-							name='plus-circle-outline'
-							color='black'
-							size={20}
-							onPress={() => navigation.navigate('Add Pill')}
-						/>
-					),
-					headerRightContainerStyle: { paddingRight: 30, paddingBottom: 5 },
-				})}
 			/>
-			<AdminPillStack.Screen name='Add Pill' component={AddNewPillScreen} />
-			<AdminPillStack.Screen name='Edit Pill' component={EditPillScreen} />
-		</AdminPillStack.Navigator>
-	);
-}
-
-const AdminMoodStack = createStackNavigator();
-
-function AdminMoodStackScreen() {
-	return (
-		<AdminMoodStack.Navigator
-			screenOptions={{
-				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.background },
-			}}
-		>
-			<AdminMoodStack.Screen
-				name='Mood'
-				component={MoodTrackerScreen}
-				options={{
-					title: 'Mood Tracker',
-				}}
+			<AdminHomeStack.Screen
+				name='Tasks Overview'
+				component={TasksOverviewScreen}
 			/>
-		</AdminMoodStack.Navigator>
-	);
-}
-
-const AdminTasksStack = createStackNavigator();
-
-function AdminTasksStackScreen() {
-	return (
-		<AdminTasksStack.Navigator
-			screenOptions={{
-				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
-				headerStyle: { backgroundColor: Colors.background },
-			}}
-		>
-			<AdminTasksStack.Screen
-				name='Tasks'
-				component={TasksScreen}
-				options={{
-					title: 'Daily Tasks',
-				}}
-			/>
-			<AdminTasksStack.Screen name='Add Task' component={AddTaskScreen} />
-		</AdminTasksStack.Navigator>
+			<AdminHomeStack.Screen name='Add Pill' component={AddPillScreen} />
+			<AdminHomeStack.Screen name='Edit Pill' component={EditPillScreen} />
+			<AdminHomeStack.Screen name='Add Task' component={AddTaskScreen} />
+		</AdminHomeStack.Navigator>
 	);
 }
 
@@ -124,10 +65,6 @@ function AdminSettingsStackScreen() {
 			<AdminSettingsStack.Screen
 				name='Track Data'
 				component={TrackDataScreen}
-			/>
-			<AdminSettingsStack.Screen
-				name='Supervisor Details'
-				component={SupervisorDetailsScreen}
 			/>
 			<AdminSettingsStack.Screen
 				name='App Information'
@@ -161,45 +98,6 @@ function AdminTabNavigator() {
 						),
 					}}
 				/>
-				<AdminTab.Screen
-					name='Pills'
-					component={AdminPillStackScreen}
-					options={{
-						tabBarLabel: <Text>Pill</Text>,
-						tabBarIcon: (tabInfo) => (
-							<MaterialCommunityIcons name='pill' color={'black'} size={25} />
-						),
-					}}
-				/>
-				<AdminTab.Screen
-					name='Mood'
-					component={AdminMoodStackScreen}
-					options={{
-						tabBarLabel: 'Mood',
-						tabBarIcon: (tabInfo) => (
-							<MaterialCommunityIcons
-								name='emoticon-happy-outline'
-								color={'black'}
-								size={25}
-							/>
-						),
-					}}
-				/>
-				<AdminTab.Screen
-					name='Tasks'
-					component={AdminTasksStackScreen}
-					options={{
-						tabBarLabel: 'Tasks',
-						tabBarIcon: (tabInfo) => (
-							<MaterialCommunityIcons
-								name='check-bold'
-								color={'black'}
-								size={25}
-							/>
-						),
-					}}
-				/>
-
 				<AdminTab.Screen
 					name='Settings'
 					component={AdminSettingsStackScreen}

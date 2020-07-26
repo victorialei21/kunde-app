@@ -18,7 +18,7 @@ function KundeNavigator() {
 			>
 				<MainNavigator.Screen name='Login' component={LoginScreen} />
 				<MainNavigator.Screen name='User' component={UserTabNavigator} />
-				{/* <MainNavigator.Screen name='Admin' component={AdminTabNavigator} /> */}
+				<MainNavigator.Screen name='Admin' component={AdminTabNavigator} />
 			</MainNavigator.Navigator>
 		</NavigationContainer>
 	);

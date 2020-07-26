@@ -12,7 +12,7 @@ import DefaultButton from '../../components/DefaultButton';
 import PillTextInput from '../../components/PillTextInput';
 import Colors from '../../constants/Colors';
 
-const AddNewPillScreen = (props) => {
+const AddPillScreen = (props) => {
 	const [pillReminders, setPillReminders] = useState([]);
 
 	const addPillHandler = () => {
@@ -66,4 +66,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default AddNewPillScreen;
+export default AddPillScreen;

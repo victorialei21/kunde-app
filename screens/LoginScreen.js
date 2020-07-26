@@ -38,7 +38,7 @@ const LoginScreen = (props) => {
 				<DefaultButton
 					title='Log In'
 					style={{ width: 90 }}
-					onPress={() => props.navigation.replace('User')}
+					onPress={() => props.navigation.replace('Admin')}
 				/>
 			</KeyboardAvoidingView>
 		</TouchableWithoutFeedback>

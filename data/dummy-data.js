@@ -85,3 +85,38 @@ export const PILLS = [
 		quantity: 2,
 	},
 ];
+
+export const USERS = [
+	{
+		name: 'First name',
+		id: '1',
+	},
+	{
+		name: 'First name',
+		id: '2',
+	},
+	{
+		name: 'First name',
+		id: '3',
+	},
+	{
+		name: 'First name',
+		id: '4',
+	},
+	{
+		name: 'First name',
+		id: '5',
+	},
+	{
+		name: 'First name',
+		id: '6',
+	},
+	{
+		name: 'First name',
+		id: '7',
+	},
+	{
+		name: 'First name',
+		id: '8',
+	},
+];
