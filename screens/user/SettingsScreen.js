@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Image, Alert } from 'react-native';
+import { View, StyleSheet, Image, Alert, Text } from 'react-native';
 
-import DefaultText from '../../components/DefaultText';
 import Colors from '../../constants/Colors';
 import SettingItem from '../../components/SettingItem';
 
@@ -18,14 +17,13 @@ const SettingsScreen = (props) => {
 			<View style={styles.profPicContainer}>
 				<Image
 					style={styles.profilePicture}
-					source={{
-						uri:
-							'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-					}}
+					source={require('../../assets/dummyprofilepic.png')}
 				/>
 			</View>
 			<View>
-				<DefaultText style={{ fontSize: 15 }}>First Name</DefaultText>
+				<Text style={{ fontSize: 15, fontFamily: 'rubik-medium' }}>
+					First Name Last Name
+				</Text>
 			</View>
 			<View style={styles.container}>
 				<SettingItem

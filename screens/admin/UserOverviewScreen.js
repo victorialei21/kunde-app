@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, Dimensions, StyleSheet, FlatList, Text } from 'react-native';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
 
-import InformationRect from '../../components/InformationRect';
 import UserCard from '../../components/UserCard';
 import Colors from '../../constants/Colors';
 import { USERS } from '../../data/dummy-data';
-import DefaultText from '../../components/DefaultText';
 
 const UserOverviewScreen = (props) => {
 	return (
@@ -18,7 +16,14 @@ const UserOverviewScreen = (props) => {
 					data={USERS}
 					renderItem={({ item }) => (
 						<View style={styles.itemContainer}>
-							<UserCard name={item.name} />
+							<UserCard
+								name={item.name}
+								onPress={() =>
+									props.navigation.navigate('User Detail', {
+										userName: item.name,
+									})
+								}
+							/>
 						</View>
 					)}
 					keyExtractor={(item) => item.id}

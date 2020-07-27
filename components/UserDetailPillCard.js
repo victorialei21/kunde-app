@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
+import DefaultText from './DefaultText';
+import DefaultButton from './DefaultButton';
 import Colors from '../constants/Colors';
 
-const UserCard = (props) => {
+const UserDetailPillCard = (props) => {
 	return (
 		<TouchableOpacity
 			style={{ ...styles.cardContainer, ...props.style }}
@@ -64,4 +66,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default UserCard;
+export default UserDetailPillCard;

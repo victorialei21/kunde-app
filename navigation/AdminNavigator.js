@@ -30,7 +30,7 @@ function AdminHomeStackScreen() {
 			}}
 		>
 			<AdminHomeStack.Screen name='Home' component={UserOverviewScreen} />
-			<AdminHomeStack.Screen name='User Details' component={UserDetailScreen} />
+			<AdminHomeStack.Screen name='User Detail' component={UserDetailScreen} />
 			<AdminHomeStack.Screen
 				name='Mood Overview'
 				component={MoodOverviewScreen}
