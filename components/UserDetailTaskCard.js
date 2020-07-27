@@ -4,18 +4,18 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import DefaultText from './DefaultText';
 import Colors from '../constants/Colors';
 
-const UserDetailPillCard = (props) => {
+const UserDetailTaskCard = (props) => {
 	return (
 		<TouchableOpacity
 			style={{ ...styles.cardContainer, ...props.style }}
 			onPress={props.onPress}
 		>
 			<View>
-				<Text style={{ fontFamily: 'rubik-medium', fontSize: 17 }}>Pills</Text>
+				<Text style={{ fontFamily: 'rubik-medium', fontSize: 17 }}>Tasks</Text>
 			</View>
 			<View style={{ padding: 10 }}>
 				<DefaultText style={{ textAlign: 'center' }}>
-					Took 3 pills and has 5 pills left today
+					Completed 2 tasks and has 3 tasks remaining today
 				</DefaultText>
 			</View>
 		</TouchableOpacity>
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default UserDetailPillCard;
+export default UserDetailTaskCard;
