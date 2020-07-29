@@ -6,20 +6,22 @@ import {
 	TouchableWithoutFeedback,
 	Keyboard,
 	KeyboardAvoidingView,
+	TextInput,
+	Dimensions,
+	Platform,
+	Alert,
 } from 'react-native';
 
 import DefaultButton from '../../components/DefaultButton';
-import PillTextInput from '../../components/PillTextInput';
 import Colors from '../../constants/Colors';
 
-const AddTaskScreen = (props) => {
-	const [pillReminders, setPillReminders] = useState([]);
-
-	const addPillHandler = () => {
-		setPillReminders((currentReminders) => [
-			...currentReminders,
-			{ id: Math.random().toString(), value: pillTitle },
-		]);
+const AddTaskScreen = ({ route, navigation }) => {
+	const { userName } = route.params;
+	const saveHandler = () => {
+		return Alert.alert(
+			'Success!',
+			`You added a task to ${userName}'s task list`
+		);
 	};
 
 	return (
@@ -28,17 +30,22 @@ const AddTaskScreen = (props) => {
 				Keyboard.dismiss();
 			}}
 		>
-			<KeyboardAvoidingView style={styles.screen} behavior='height'>
-				<Text style={styles.title}>Enter Pill Details</Text>
+			<KeyboardAvoidingView
+				style={styles.screen}
+				behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
+			>
+				<Text style={styles.title}>Enter Task Details</Text>
 				<View style={styles.inputContainer}>
-					<PillTextInput title='Name' />
-					<PillTextInput title='Dosage (mg)' keyboardType='number-pad' />
-					<PillTextInput title='Quantity' keyboardType='number-pad' />
-					<PillTextInput title='Time' />
-					<PillTextInput title='Day(s) of Week' />
+					<TextInput
+						multiline={true}
+						placeholder='Type here...'
+						numberOfLines={15}
+						style={{ fontFamily: 'rubik-regular' }}
+						textAlignVertical={'top'}
+					/>
 				</View>
 				<View style={styles.saveButton}>
-					<DefaultButton title='Save' onPress={addPillHandler} />
+					<DefaultButton title='Save' onPress={saveHandler} />
 				</View>
 			</KeyboardAvoidingView>
 		</TouchableWithoutFeedback>
@@ -55,14 +62,18 @@ const styles = StyleSheet.create({
 	title: {
 		fontFamily: 'rubik-medium',
 		fontSize: 20,
+		margin: 10,
 	},
 	saveButton: {
 		padding: 20,
 	},
 	inputContainer: {
-		width: '90%',
-		justifyContent: 'center',
-		alignItems: 'center',
+		width: '80%',
+		height: Dimensions.get('window').height * 0.35,
+		borderWidth: 1,
+		borderRadius: 10,
+		margin: 10,
+		padding: 20,
 	},
 });
 

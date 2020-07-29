@@ -5,12 +5,14 @@ import DateText from '../../components/DateText';
 import { PILLS } from '../../data/dummy-data';
 import Colors from '../../constants/Colors';
 import PillItem from '../../components/PillItem';
+import DefaultText from '../../components/DefaultText';
 
 const PillOverviewScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<View style={styles.titleContainer}>
 				<DateText />
+				<DefaultText>Click on a pill to edit or view details.</DefaultText>
 			</View>
 			<SafeAreaView style={styles.listContainer}>
 				<FlatList
@@ -19,10 +21,11 @@ const PillOverviewScreen = (props) => {
 					renderItem={({ item }) => (
 						<View style={styles.pillContainer}>
 							<PillItem
+								admin={true}
 								title={item.title}
 								time={item.time}
 								quantity={item.quantity}
-								onPress={() => props.navigation.navigate('Pill Details')}
+								onPress={() => props.navigation.navigate('Edit Pill')}
 							/>
 						</View>
 					)}
@@ -46,10 +49,10 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	titleContainer: {
-		paddingTop: 15,
-		margin: 10,
+		padding: 15,
+		margin: 20,
 		flex: 1,
-		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	listContainer: {
 		flex: 12,

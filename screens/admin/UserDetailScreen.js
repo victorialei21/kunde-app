@@ -28,24 +28,34 @@ const UserDetailScreen = ({ route, navigation }) => {
 			<View style={styles.addButtonsContainer}>
 				<DefaultButton
 					title='Add Pill'
-					onPress={() => navigation.navigate('Add Pill')}
+					onPress={() =>
+						navigation.navigate('Add Pill', { userName: userName })
+					}
 					style={styles.button}
 				/>
 				<DefaultButton
 					title='Add Task'
-					onPress={() => navigation.navigate('Add Task')}
+					onPress={() =>
+						navigation.navigate('Add Task', { userName: userName })
+					}
 					style={styles.button}
 				/>
 			</View>
 			<View style={styles.summariesContainer}>
 				<UserDetailPillCard
-					onPress={() => navigation.navigate('Pill Overview')}
+					onPress={() =>
+						navigation.navigate('Pill Overview', { userName: userName })
+					}
 				/>
 				<UserDetailMoodCard
-					onPress={() => navigation.navigate('Mood Overview')}
+					onPress={() =>
+						navigation.navigate('Mood Overview', { userName: userName })
+					}
 				/>
 				<UserDetailTaskCard
-					onPress={() => navigation.navigate('Tasks Overview')}
+					onPress={() =>
+						navigation.navigate('Tasks Overview', { userName: userName })
+					}
 				/>
 			</View>
 		</View>

@@ -50,7 +50,7 @@ export const PILLS = [
 	},
 	{
 		id: '13',
-		title: 'random pill name',
+		title: 'Random Pill Name',
 		time: '6:00 PM',
 		quantity: 2,
 	},
