@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, Alert, Text } from 'react-native';
+import { View, StyleSheet, Image, Alert } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import SettingItem from '../../components/SettingItem';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const SettingsScreen = (props) => {
 	const logout = () => {
@@ -21,9 +22,9 @@ const SettingsScreen = (props) => {
 				/>
 			</View>
 			<View>
-				<Text style={{ fontSize: 15, fontFamily: 'rubik-medium' }}>
+				<DefaultHeaderText style={{ fontSize: 15 }}>
 					First Name Last Name
-				</Text>
+				</DefaultHeaderText>
 			</View>
 			<View style={styles.container}>
 				<SettingItem

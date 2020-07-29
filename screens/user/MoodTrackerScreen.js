@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, StyleSheet, Alert, Dimensions } from 'react-native';
+import { View, StyleSheet, Alert, Dimensions } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
 import MoodButton from '../../components/MoodButton';
@@ -8,6 +8,7 @@ import DefaultButton from '../../components/DefaultButton';
 import MoodGraph from '../../components/MoodGraph';
 import Colors from '../../constants/Colors';
 import { addMood } from '../../store/actions/moods';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const MoodTrackerScreen = (props) => {
 	//global state
@@ -61,7 +62,7 @@ const MoodTrackerScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<View style={styles.titleContainer}>
-				<Text style={styles.title}>How Do You Feel Right Now?</Text>
+				<DefaultHeaderText>How Do You Feel Right Now?</DefaultHeaderText>
 			</View>
 			<View style={styles.buttonsScaleContainer}>
 				<View style={styles.buttonsContainer}>
@@ -127,7 +128,7 @@ const MoodTrackerScreen = (props) => {
 			</View>
 			<View style={styles.chartContainer}>
 				<View>
-					<Text style={styles.title}>Mood Summary—Five Past Entries</Text>
+					<DefaultHeaderText>Mood Summary—Five Past Entries</DefaultHeaderText>
 				</View>
 				<View>
 					<MoodGraph />
@@ -143,10 +144,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	title: {
-		fontFamily: 'rubik-medium',
-		fontSize: 20,
 	},
 	titleContainer: {
 		flex: 1,
@@ -188,9 +185,12 @@ const styles = StyleSheet.create({
 		width: Dimensions.get('window').width * 0.85,
 		alignItems: 'center',
 		padding: 5,
+		paddingTop: 0,
+		marginTop: 0,
 	},
 	chartContainer: {
 		flex: 5,
+		alignItems: 'center',
 	},
 });
 

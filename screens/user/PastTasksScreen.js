@@ -31,16 +31,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: Colors.background,
 	},
-	title: {
-		fontFamily: 'rubik-medium',
-		fontSize: 20,
-		paddingTop: 10,
-	},
-	titleContainer: {
-		justifyContent: 'center',
-		padding: 20,
-		flex: 1,
-	},
 	listContainer: { flex: 12, width: '95%' },
 	itemContainer: {
 		alignItems: 'center',

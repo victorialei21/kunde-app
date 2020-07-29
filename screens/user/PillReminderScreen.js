@@ -40,11 +40,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 		backgroundColor: Colors.background,
 	},
-
-	title: {
-		fontFamily: 'rubik-medium',
-		fontSize: 20,
-	},
 	titleContainer: {
 		paddingTop: 15,
 		margin: 10,

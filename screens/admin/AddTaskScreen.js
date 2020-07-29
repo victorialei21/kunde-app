@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 	View,
-	Text,
 	StyleSheet,
 	TouchableWithoutFeedback,
 	Keyboard,
@@ -14,6 +13,7 @@ import {
 
 import DefaultButton from '../../components/DefaultButton';
 import Colors from '../../constants/Colors';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const AddTaskScreen = ({ route, navigation }) => {
 	const { userName } = route.params;
@@ -34,7 +34,7 @@ const AddTaskScreen = ({ route, navigation }) => {
 				style={styles.screen}
 				behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
 			>
-				<Text style={styles.title}>Enter Task Details</Text>
+				<DefaultHeaderText>Enter Task Details</DefaultHeaderText>
 				<View style={styles.inputContainer}>
 					<TextInput
 						multiline={true}
@@ -58,11 +58,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	title: {
-		fontFamily: 'rubik-medium',
-		fontSize: 20,
-		margin: 10,
 	},
 	saveButton: {
 		padding: 20,

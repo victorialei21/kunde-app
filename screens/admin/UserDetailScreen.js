@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import DefaultButton from '../../components/DefaultButton';
 import UserDetailPillCard from '../../components/UserDetailPillCard';
 import UserDetailMoodCard from '../../components/UserDetailMoodCard';
 import UserDetailTaskCard from '../../components/UserDetailTaskCard';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const UserDetailScreen = ({ route, navigation }) => {
 	const { userName } = route.params;
@@ -20,9 +21,7 @@ const UserDetailScreen = ({ route, navigation }) => {
 					/>
 				</View>
 				<View style={styles.nameContainer}>
-					<Text style={{ fontFamily: 'rubik-medium', fontSize: 18 }}>
-						{userName}
-					</Text>
+					<DefaultHeaderText>{userName}</DefaultHeaderText>
 				</View>
 			</View>
 			<View style={styles.addButtonsContainer}>

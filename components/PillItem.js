@@ -10,12 +10,21 @@ const PillItem = (props) => {
 
 	if (props.admin === true) {
 		return (
-			<TouchableOpacity style={styles.pillBoxAdmin} onPress={props.onPress}>
-				<View>
+			<TouchableOpacity style={styles.pillBox} onPress={props.onPress}>
+				<View style={styles.pillItem}>
 					<DefaultText style={{ fontFamily: 'rubik-medium' }}>
 						{props.title} {`(${props.quantity})`}
 					</DefaultText>
 					<DefaultText>{props.time}</DefaultText>
+				</View>
+				<View style={{ flex: 1 }}>
+					<CheckBox
+						checked={toggleCheckBox}
+						checkedIcon='check-square'
+						checkedColor={Colors.red}
+						uncheckedColor='black'
+						center
+					/>
 				</View>
 			</TouchableOpacity>
 		);
@@ -57,15 +66,6 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		alignItems: 'flex-start',
 		flex: 7,
-	},
-	pillBoxAdmin: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		width: Dimensions.get('screen').width * 0.85,
-		margin: 5,
-		padding: 10,
-		paddingBottom: 15,
-		borderBottomWidth: 0.5,
 	},
 });
 

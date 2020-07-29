@@ -1,14 +1,10 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Colors from '../../constants/Colors';
 
 const EditPillScreen = (props) => {
-	return (
-		<View style={styles.screen}>
-			<Text>Edit Pill</Text>
-		</View>
-	);
+	return <View style={styles.screen}></View>;
 };
 
 const styles = StyleSheet.create({

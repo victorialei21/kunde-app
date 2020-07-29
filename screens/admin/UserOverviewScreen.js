@@ -1,15 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Text } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 
 import UserCard from '../../components/UserCard';
 import Colors from '../../constants/Colors';
 import { USERS } from '../../data/dummy-data';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const UserOverviewScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<View style={styles.headerContainer}>
-				<Text style={styles.header}>Patient Feed</Text>
+				<DefaultHeaderText>Patient Feed</DefaultHeaderText>
 			</View>
 			<View style={styles.listContainer}>
 				<FlatList
@@ -39,10 +40,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	header: {
-		fontFamily: 'rubik-medium',
-		fontSize: 25,
 	},
 	headerContainer: {
 		flex: 1,

@@ -12,7 +12,13 @@ const PillOverviewScreen = (props) => {
 		<View style={styles.screen}>
 			<View style={styles.titleContainer}>
 				<DateText />
-				<DefaultText>Click on a pill to edit or view details.</DefaultText>
+				<DefaultText
+					style={{
+						padding: 10,
+					}}
+				>
+					Click on a pill to edit or view details.
+				</DefaultText>
 			</View>
 			<SafeAreaView style={styles.listContainer}>
 				<FlatList
@@ -49,8 +55,8 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	titleContainer: {
-		padding: 15,
-		margin: 20,
+		padding: 10,
+		margin: 10,
 		flex: 1,
 		alignItems: 'center',
 	},

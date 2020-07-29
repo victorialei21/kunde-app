@@ -4,11 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import Colors from '../../constants/Colors';
 
 const ProfileScreen = (props) => {
-	return (
-		<View style={styles.screen}>
-			<View></View>
-		</View>
-	);
+	return <View style={styles.screen}></View>;
 };
 
 const styles = StyleSheet.create({

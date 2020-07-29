@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
 	View,
-	Text,
 	StyleSheet,
 	TouchableWithoutFeedback,
 	Keyboard,
@@ -11,6 +10,7 @@ import {
 import DefaultButton from '../../components/DefaultButton';
 import PillTextInput from '../../components/PillTextInput';
 import Colors from '../../constants/Colors';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const AddPillScreen = (props) => {
 	const [pillReminders, setPillReminders] = useState([]);
@@ -29,7 +29,7 @@ const AddPillScreen = (props) => {
 			}}
 		>
 			<KeyboardAvoidingView style={styles.screen} behavior='height'>
-				<Text style={styles.title}>Enter Pill Details</Text>
+				<DefaultHeaderText>Enter Pill Details</DefaultHeaderText>
 				<View style={styles.inputContainer}>
 					<PillTextInput title='Name' />
 					<PillTextInput title='Dosage (mg)' keyboardType='number-pad' />
@@ -51,10 +51,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	title: {
-		fontFamily: 'rubik-medium',
-		fontSize: 20,
 	},
 	saveButton: {
 		padding: 20,

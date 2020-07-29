@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import InformationRect from '../../components/InformationRect';
 import InformationBox from '../../components/InformationBox';
 import { AFFIRMATIONS, TASKS, PILLS } from '../../data/dummy-data';
 import Colors from '../../constants/Colors';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const MainScreen = (props) => {
 	const randomInt = Math.floor(Math.random() * 18);
@@ -31,7 +32,9 @@ const MainScreen = (props) => {
 		<ScrollView>
 			<View style={styles.screen}>
 				<View style={styles.titleContainer}>
-					<Text style={styles.title}>Wellness Feed</Text>
+					<DefaultHeaderText style={{ fontSize: 30 }}>
+						Wellness Feed
+					</DefaultHeaderText>
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
@@ -91,10 +94,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	title: {
-		fontSize: 30,
-		fontFamily: 'rubik-medium',
 	},
 	titleContainer: {
 		paddingHorizontal: 10,
