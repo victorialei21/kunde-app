@@ -2,9 +2,17 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Colors from '../../constants/Colors';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
-const EditPillScreen = (props) => {
-	return <View style={styles.screen}></View>;
+const EditPillScreen = ({ route }) => {
+	const { pillName } = route.params;
+	return (
+		<View style={styles.screen}>
+			<View>
+				<DefaultHeaderText>{pillName}</DefaultHeaderText>
+			</View>
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({

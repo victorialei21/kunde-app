@@ -17,6 +17,7 @@ import AddTaskScreen from '../screens/admin/AddTaskScreen';
 import UserDetailScreen from '../screens/admin/UserDetailScreen';
 import MoodOverviewScreen from '../screens/admin/MoodOverviewScreen';
 import TasksOverviewScreen from '../screens/admin/TasksOverviewScreen';
+import AddTaskToManyScreen from '../screens/admin/AddTaskToManyScreen';
 import Colors from '../constants/Colors';
 
 const AdminHomeStack = createStackNavigator();
@@ -47,6 +48,24 @@ function AdminHomeStackScreen() {
 			<AdminHomeStack.Screen name='Edit Pill' component={EditPillScreen} />
 			<AdminHomeStack.Screen name='Add Task' component={AddTaskScreen} />
 		</AdminHomeStack.Navigator>
+	);
+}
+
+const AdminManyTaskStack = createStackNavigator();
+
+function AdminManyTaskStackScreen() {
+	return (
+		<AdminManyTaskStack.Navigator
+			screenOptions={{
+				headerTitleStyle: { fontFamily: 'rubik-medium', fontSize: 25 },
+				headerStyle: { backgroundColor: Colors.background },
+			}}
+		>
+			<AdminManyTaskStack.Screen
+				name='Tasks Quick Add'
+				component={AddTaskToManyScreen}
+			/>
+		</AdminManyTaskStack.Navigator>
 	);
 }
 
@@ -95,6 +114,16 @@ function AdminTabNavigator() {
 								color={'black'}
 								size={25}
 							/>
+						),
+					}}
+				/>
+				<AdminTab.Screen
+					name='Tasks'
+					component={AdminManyTaskStackScreen}
+					options={{
+						tabBarLabel: 'Tasks',
+						tabBarIcon: (tabInfo) => (
+							<MaterialCommunityIcons name='pencil' color={'black'} size={25} />
 						),
 					}}
 				/>

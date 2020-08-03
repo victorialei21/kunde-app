@@ -37,6 +37,23 @@ const TaskItem = (props) => {
 		);
 	}
 
+	if (props.admin === true) {
+		return (
+			<View style={{ ...styles.item, ...props.style }}>
+				<View>
+					<DefaultText
+						style={{
+							fontSize: 15,
+							padding: 15,
+						}}
+					>
+						{props.title}
+					</DefaultText>
+				</View>
+			</View>
+		);
+	}
+
 	return (
 		<View style={{ ...styles.item, ...props.style }}>
 			<View style={{ flex: 8 }}>

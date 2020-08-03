@@ -10,7 +10,9 @@ const UserOverviewScreen = (props) => {
 	return (
 		<View style={styles.screen}>
 			<View style={styles.headerContainer}>
-				<DefaultHeaderText>Patient Feed</DefaultHeaderText>
+				<DefaultHeaderText style={{ fontSize: 25 }}>
+					Patient Feed
+				</DefaultHeaderText>
 			</View>
 			<View style={styles.listContainer}>
 				<FlatList

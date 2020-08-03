@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, FlatList } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import MoodGraph from '../../components/MoodGraph';
@@ -12,7 +12,11 @@ const MoodOverviewScreen = ({ route }) => {
 				<DefaultHeaderText> Last Five Moods Summary Graph</DefaultHeaderText>
 				<MoodGraph />
 			</View>
-			<View></View>
+			<View style={styles.logContainer}>
+				<DefaultHeaderText>Submitted Moods Log</DefaultHeaderText>
+				<FlatList />
+				{/* ^will be updated with firebase, empty for now */}
+			</View>
 		</View>
 	);
 };
@@ -26,6 +30,12 @@ const styles = StyleSheet.create({
 	},
 	graphContainer: {
 		alignItems: 'center',
+		flex: 1,
+		marginTop: 20,
+	},
+	logContainer: {
+		margin: 10,
+		flex: 1,
 	},
 });
 

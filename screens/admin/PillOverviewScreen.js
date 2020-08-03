@@ -31,7 +31,11 @@ const PillOverviewScreen = (props) => {
 								title={item.title}
 								time={item.time}
 								quantity={item.quantity}
-								onPress={() => props.navigation.navigate('Edit Pill')}
+								onPress={() =>
+									props.navigation.navigate('Edit Pill', {
+										pillName: item.title,
+									})
+								}
 							/>
 						</View>
 					)}
