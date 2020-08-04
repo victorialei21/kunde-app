@@ -23,7 +23,7 @@ const UserSettingsScreen = (props) => {
 			</View>
 			<View>
 				<DefaultHeaderText style={{ fontSize: 15 }}>
-					First Name Last Name
+					Firstname Lastname
 				</DefaultHeaderText>
 			</View>
 			<View style={styles.container}>
@@ -32,14 +32,10 @@ const UserSettingsScreen = (props) => {
 					onPress={() => props.navigation.navigate('Profile')}
 				/>
 				<SettingItem
-					title='Track Data'
-					onPress={() => props.navigation.navigate('Track Data')}
+					title='Customize Functions'
+					onPress={() => props.navigation.navigate('Customize Functions')}
 				/>
 				<SettingItem title='Notification Settings' />
-				<SettingItem
-					title='Supervisor Details'
-					onPress={() => props.navigation.navigate('Supervisor')}
-				/>
 				<SettingItem
 					title='App Information'
 					onPress={() => props.navigation.navigate('App Info')}

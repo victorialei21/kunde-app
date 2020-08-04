@@ -12,8 +12,7 @@ import PillReminderScreen from '../screens/user/PillReminderScreen';
 import UserSettingsScreen from '../screens/user/UserSettingsScreen';
 import PastTasksScreen from '../screens/user/PastTasksScreen';
 import ProfileScreen from '../screens/user/ProfileScreen';
-import DisableSupervisorScreen from '../screens/user/DisableSupervisorScreen';
-import SupervisorDetailsScreen from '../screens/user/SupervisorDetailsScreen';
+import CustomizeFunctionsScreen from '../screens/user/CustomizeFunctionsScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
 import PillDetailsScreen from '../screens/user/PillDetailsScreen';
 import Colors from '../constants/Colors';
@@ -99,12 +98,8 @@ function UserSettingsStackScreen() {
 			/>
 			<UserSettingsStack.Screen name='Profile' component={ProfileScreen} />
 			<UserSettingsStack.Screen
-				name='Track Data'
-				component={DisableSupervisorScreen}
-			/>
-			<UserSettingsStack.Screen
-				name='Supervisor Details'
-				component={SupervisorDetailsScreen}
+				name='Customize Functions'
+				component={CustomizeFunctionsScreen}
 			/>
 			<UserSettingsStack.Screen
 				name='App Information'
