@@ -15,6 +15,7 @@ import ProfileScreen from '../screens/user/ProfileScreen';
 import CustomizeFunctionsScreen from '../screens/user/CustomizeFunctionsScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
 import PillDetailsScreen from '../screens/user/PillDetailsScreen';
+import BadgesScreen from '../screens/user/BadgesScreen';
 import Colors from '../constants/Colors';
 
 const UserHomeStack = createStackNavigator();
@@ -28,6 +29,7 @@ function UserHomeStackScreen() {
 			}}
 		>
 			<UserHomeStack.Screen name='Home' component={MainScreen} />
+			<UserHomeStack.Screen name='Badges' component={BadgesScreen} />
 		</UserHomeStack.Navigator>
 	);
 }

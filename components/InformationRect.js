@@ -10,7 +10,6 @@ import {
 import DefaultText from './DefaultText';
 import DefaultButton from './DefaultButton';
 import Colors from '../constants/Colors';
-import { TASKS } from '../data/dummy-data';
 
 const InformationRect = (props) => {
 	if (props.goals === true) {
@@ -26,6 +25,7 @@ const InformationRect = (props) => {
 					<DefaultText style={{ textAlign: 'center' }}>
 						{props.content}
 					</DefaultText>
+					<View>{props.badges}</View>
 				</View>
 			</TouchableOpacity>
 		);
@@ -37,7 +37,7 @@ const InformationRect = (props) => {
 					<Text style={styles.header}>{props.header}</Text>
 				</View>
 				<View style={{ margin: 5 }}>
-					<DefaultText style={styles.text}>"{props.content}"</DefaultText>
+					<DefaultText style={styles.text}>{props.content}</DefaultText>
 				</View>
 			</View>
 		);
@@ -70,19 +70,6 @@ const InformationRect = (props) => {
 							Linking.openURL('https://www.facebook.com/kundecafe')
 						}
 					/>
-				</View>
-			</View>
-		);
-	} else {
-		return (
-			<View style={{ ...styles.infoItem, ...props.style }}>
-				<View style={styles.headerContainer}>
-					<Text style={styles.header}>{props.header}</Text>
-				</View>
-				<View style={{ margin: 5 }}>
-					<DefaultText style={{ textAlign: 'center' }}>
-						{props.content}
-					</DefaultText>
 				</View>
 			</View>
 		);

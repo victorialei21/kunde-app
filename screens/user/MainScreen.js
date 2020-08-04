@@ -6,47 +6,32 @@ import InformationRect from '../../components/InformationRect';
 import InformationBox from '../../components/InformationBox';
 import { AFFIRMATIONS, TASKS, PILLS } from '../../data/dummy-data';
 import Colors from '../../constants/Colors';
-import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const MainScreen = (props) => {
 	const randomInt = Math.floor(Math.random() * 18);
-	const moods = useSelector((state) => state.moods.moods);
-	const size = moods.length;
 
-	const calculateMoodAverage = () => {
-		if (size < 5) {
-			const lastFiveMoodsSum =
-				moods[size - 1].value +
-				moods[size - 2].value +
-				moods[size - 3].value +
-				moods[size - 4].value +
-				moods[size - 5].value;
-			const moodAverage = lastFiveMoodsSum / 5;
-			return `Your last five mood submissions have averaged at ${moodAverage}`;
-		} else {
-			return 'Please submit at least 5 moods to display a calculated average.';
-		}
+	const badges = () => {
+		return <View></View>;
 	};
 
 	return (
 		<ScrollView>
 			<View style={styles.screen}>
-				<View style={styles.titleContainer}>
-					<DefaultHeaderText style={{ fontSize: 30 }}>
-						Wellness Feed
-					</DefaultHeaderText>
-				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
 						header='Affirmation of the Day'
-						content={AFFIRMATIONS[randomInt]}
+						content={`"${AFFIRMATIONS[randomInt]}"`}
 						affirmation={true}
 					/>
 				</View>
 				<View style={styles.rectContainer}>
 					<InformationRect
-						header="Today's Overview"
-						content={`You have ${PILLS.length} pills to take today.`}
+						goals={true}
+						header='Upcoming Task'
+						content={TASKS[0].title}
+						onSelect={() => {
+							props.navigation.navigate('Tasks');
+						}}
 						style={{ backgroundColor: Colors.blue }}
 					/>
 				</View>
@@ -66,13 +51,15 @@ const MainScreen = (props) => {
 						}}
 					/>
 				</View>
-				<View style={styles.rectContainer}>
+				<View>
 					<InformationRect
 						goals={true}
-						header='Upcoming Task'
-						content={TASKS[0].title}
+						header='Earn Badges'
+						content={
+							'Click to track your progress and work toward earning more badges!'
+						}
 						onSelect={() => {
-							props.navigation.navigate('Tasks');
+							props.navigation.navigate('Badges');
 						}}
 					/>
 				</View>
@@ -94,10 +81,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	titleContainer: {
-		paddingHorizontal: 10,
-		paddingTop: 20,
+		padding: 5,
 	},
 	rectContainer: {
 		paddingVertical: 5,
