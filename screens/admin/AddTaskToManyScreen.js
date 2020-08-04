@@ -9,15 +9,18 @@ import {
 	Dimensions,
 	Platform,
 	Alert,
+	FlatList,
 } from 'react-native';
 
 import DefaultButton from '../../components/DefaultButton';
 import Colors from '../../constants/Colors';
 import DefaultHeaderText from '../../components/DefaultHeaderText';
+import { USERS } from '../../data/dummy-data';
+import AssignUserItem from '../../components/AssignUserItem';
 
 const AddTaskToMany = (props) => {
 	const saveHandler = () => {
-		return Alert.alert('Success!');
+		return Alert.alert('Success!', 'You added a task ');
 	};
 
 	return (
@@ -30,7 +33,9 @@ const AddTaskToMany = (props) => {
 				style={styles.screen}
 				behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
 			>
-				<DefaultHeaderText>Enter Task Details</DefaultHeaderText>
+				<View style={styles.headerContainer}>
+					<DefaultHeaderText>Enter Task Details</DefaultHeaderText>
+				</View>
 				<View style={styles.inputContainer}>
 					<TextInput
 						multiline={true}
@@ -40,7 +45,20 @@ const AddTaskToMany = (props) => {
 						textAlignVertical={'top'}
 					/>
 				</View>
-				<View style={styles.saveButton}>
+				<View style={styles.assignHeaderContainer}>
+					<DefaultHeaderText>Assign To:</DefaultHeaderText>
+				</View>
+				<View style={styles.assignContainer}>
+					<FlatList
+						data={USERS}
+						renderItem={({ item }) => (
+							<View>
+								<AssignUserItem title={item.name} admin={true} />
+							</View>
+						)}
+					/>
+				</View>
+				<View style={styles.buttonContainer}>
 					<DefaultButton title='Save' onPress={saveHandler} />
 				</View>
 			</KeyboardAvoidingView>
@@ -55,16 +73,36 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: Colors.background,
 	},
-	saveButton: {
-		padding: 20,
+	headerContainer: {
+		flex: 1,
+		margin: 10,
+		justifyContent: 'center',
+	},
+	buttonContainer: {
+		margin: 10,
+		flex: 1,
+		justifyContent: 'center',
 	},
 	inputContainer: {
 		width: '80%',
 		height: Dimensions.get('window').height * 0.35,
 		borderWidth: 1,
 		borderRadius: 10,
-		margin: 10,
+		margin: 5,
 		padding: 20,
+		flex: 3,
+		borderWidth: 1,
+	},
+	assignHeaderContainer: {
+		margin: 10,
+		flex: 1,
+		justifyContent: 'center',
+	},
+	assignContainer: {
+		flex: 4,
+		borderWidth: 1,
+		borderRadius: 10,
+		width: '70%',
 	},
 });
 

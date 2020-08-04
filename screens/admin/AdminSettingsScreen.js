@@ -5,7 +5,7 @@ import Colors from '../../constants/Colors';
 import SettingItem from '../../components/SettingItem';
 import DefaultHeaderText from '../../components/DefaultHeaderText';
 
-const SettingsScreen = (props) => {
+const AdminSettingsScreen = (props) => {
 	const logout = () => {
 		Alert.alert('Logging Out', 'Are you sure you want to log out?', [
 			{ text: 'Yes' },
@@ -23,17 +23,13 @@ const SettingsScreen = (props) => {
 			</View>
 			<View>
 				<DefaultHeaderText style={{ fontSize: 15 }}>
-					First Name Last Name
+					Firstname Lastname
 				</DefaultHeaderText>
 			</View>
 			<View style={styles.container}>
 				<SettingItem
 					title='Profile'
 					onPress={() => props.navigation.navigate('Profile')}
-				/>
-				<SettingItem
-					title='Track Data'
-					onPress={() => props.navigation.navigate('Track Data')}
 				/>
 				<SettingItem title='Notification Settings' />
 				<SettingItem
@@ -72,4 +68,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default SettingsScreen;
+export default AdminSettingsScreen;

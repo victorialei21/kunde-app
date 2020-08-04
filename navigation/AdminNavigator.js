@@ -6,10 +6,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 import UserOverviewScreen from '../screens/admin/UserOverviewScreen';
-import SettingsScreen from '../screens/user/SettingsScreen';
 import AddPillScreen from '../screens/admin/AddPillScreen';
 import ProfileScreen from '../screens/user/ProfileScreen';
-import TrackDataScreen from '../screens/user/TrackDataScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
 import EditPillScreen from '../screens/admin/EditPillScreen';
 import PillOverviewScreen from '../screens/admin/PillOverviewScreen';
@@ -18,6 +16,7 @@ import UserDetailScreen from '../screens/admin/UserDetailScreen';
 import MoodOverviewScreen from '../screens/admin/MoodOverviewScreen';
 import TasksOverviewScreen from '../screens/admin/TasksOverviewScreen';
 import AddTaskToManyScreen from '../screens/admin/AddTaskToManyScreen';
+import AdminSettingsScreen from '../screens/admin/AdminSettingsScreen';
 import Colors from '../constants/Colors';
 
 const AdminHomeStack = createStackNavigator();
@@ -79,12 +78,11 @@ function AdminSettingsStackScreen() {
 				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
-			<AdminSettingsStack.Screen name='Settings' component={SettingsScreen} />
-			<AdminSettingsStack.Screen name='Profile' component={ProfileScreen} />
 			<AdminSettingsStack.Screen
-				name='Track Data'
-				component={TrackDataScreen}
+				name='Settings'
+				component={AdminSettingsScreen}
 			/>
+			<AdminSettingsStack.Screen name='Profile' component={ProfileScreen} />
 			<AdminSettingsStack.Screen
 				name='App Information'
 				component={AppInfoScreen}

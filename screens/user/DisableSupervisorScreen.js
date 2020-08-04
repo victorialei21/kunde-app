@@ -4,7 +4,7 @@ import { StyleSheet, View, Switch } from 'react-native';
 import Colors from '../../constants/Colors';
 import DefaultText from '../../components/DefaultText';
 
-const TrackDataScreen = (props) => {
+const DisableSupervisorScreen = (props) => {
 	const [trackingData, setTrackingData] = useState(false);
 	const toggleSwitch = () => setTrackingData((previousState) => !previousState);
 
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default TrackDataScreen;
+export default DisableSupervisorScreen;

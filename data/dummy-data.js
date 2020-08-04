@@ -88,36 +88,36 @@ export const PILLS = [
 
 export const USERS = [
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '1',
 		desription: 'Has 3 pills left to take ',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '2',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '3',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '4',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '5',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '6',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '7',
 	},
 	{
-		name: 'First name Last name',
+		name: 'Firstname Lastname',
 		id: '8',
 	},
 ];

@@ -9,10 +9,10 @@ import TasksScreen from '../screens/user/TasksScreen';
 import MainScreen from '../screens/user/MainScreen';
 import MoodTrackerScreen from '../screens/user/MoodTrackerScreen';
 import PillReminderScreen from '../screens/user/PillReminderScreen';
-import SettingsScreen from '../screens/user/SettingsScreen';
+import UserSettingsScreen from '../screens/user/UserSettingsScreen';
 import PastTasksScreen from '../screens/user/PastTasksScreen';
 import ProfileScreen from '../screens/user/ProfileScreen';
-import TrackDataScreen from '../screens/user/TrackDataScreen';
+import DisableSupervisorScreen from '../screens/user/DisableSupervisorScreen';
 import SupervisorDetailsScreen from '../screens/user/SupervisorDetailsScreen';
 import AppInfoScreen from '../screens/AppInfoScreen';
 import PillDetailsScreen from '../screens/user/PillDetailsScreen';
@@ -93,9 +93,15 @@ function UserSettingsStackScreen() {
 				headerStyle: { backgroundColor: Colors.background },
 			}}
 		>
-			<UserSettingsStack.Screen name='Settings' component={SettingsScreen} />
+			<UserSettingsStack.Screen
+				name='Settings'
+				component={UserSettingsScreen}
+			/>
 			<UserSettingsStack.Screen name='Profile' component={ProfileScreen} />
-			<UserSettingsStack.Screen name='Track Data' component={TrackDataScreen} />
+			<UserSettingsStack.Screen
+				name='Track Data'
+				component={DisableSupervisorScreen}
+			/>
 			<UserSettingsStack.Screen
 				name='Supervisor Details'
 				component={SupervisorDetailsScreen}
