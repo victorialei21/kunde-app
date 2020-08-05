@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
 import DefaultText from '../components/DefaultText';
-import DefaultHeaderText from './DefaultHeaderText';
 
 const BadgeItem = (props) => {
 	return (

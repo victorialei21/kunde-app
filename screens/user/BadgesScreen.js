@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 
 import Colors from '../../constants/Colors';
 import BadgeItem from '../../components/BadgeItem';
@@ -10,6 +10,7 @@ const BadgesScreen = (props) => {
 	const taskCumulativeOne = require('../../assets/TaskCumulative1.png');
 	const moodProgOne = require('../../assets/MoodProgression1.png');
 	const pillProgOne = require('../../assets/PillProgression1.png');
+	const placeHolder = require('../../assets/Placeholder.png');
 
 	return (
 		<View style={styles.screen}>
@@ -19,9 +20,11 @@ const BadgesScreen = (props) => {
 						<DefaultHeaderText>Pills</DefaultHeaderText>
 					</View>
 					<View style={styles.badgesContainer}>
-						<BadgeItem description='5 days in a row' source={pillProgOne} />
-						<BadgeItem description='25 days in a row' source={pillProgOne} />
-						<BadgeItem description='50 days in a row' source={pillProgOne} />
+						<BadgeItem description='5 in a row' source={pillProgOne} />
+						<BadgeItem description='25 in a row' source={pillProgOne} />
+						<BadgeItem description='50 in a row' source={placeHolder} />
+						<BadgeItem description='100 in a row' source={placeHolder} />
+						<BadgeItem description='365 in a row' source={placeHolder} />
 					</View>
 				</View>
 				<View style={styles.categorySection}>
@@ -29,9 +32,11 @@ const BadgesScreen = (props) => {
 						<DefaultHeaderText>Mood</DefaultHeaderText>
 					</View>
 					<View style={styles.badgesContainer}>
-						<BadgeItem description='5 days in a row' source={taskProgOne} />
-						<BadgeItem description='25 days in a row' source={taskProgOne} />
-						<BadgeItem description='50 days in a row' source={taskProgOne} />
+						<BadgeItem description='5 in a row' source={moodProgOne} />
+						<BadgeItem description='25 in a row' source={placeHolder} />
+						<BadgeItem description='50 in a row' source={placeHolder} />
+						<BadgeItem description='100 in a row' source={placeHolder} />
+						<BadgeItem description='365 in a row' source={placeHolder} />
 					</View>
 				</View>
 				<View style={styles.categorySection}>
@@ -39,9 +44,14 @@ const BadgesScreen = (props) => {
 						<DefaultHeaderText>Tasks</DefaultHeaderText>
 					</View>
 					<View style={styles.badgesContainer}>
-						<BadgeItem description='5 days in a row' source={moodProgOne} />
-						<BadgeItem description='25 days in a row' source={moodProgOne} />
-						<BadgeItem description='50 days in a row' source={moodProgOne} />
+						<BadgeItem description='5 in a row' source={taskProgOne} />
+						<BadgeItem description='25 in a row' source={taskProgOne} />
+						<BadgeItem description='50 in a row' source={taskProgOne} />
+						<BadgeItem description='100 in a row' source={placeHolder} />
+						<BadgeItem description='365 in a row' source={placeHolder} />
+						<BadgeItem description='25 total' source={taskCumulativeOne} />
+						<BadgeItem description='50 total' source={taskCumulativeOne} />
+						<BadgeItem description='75 total' source={placeHolder} />
 					</View>
 				</View>
 			</ScrollView>
@@ -61,9 +71,11 @@ const styles = StyleSheet.create({
 	},
 	categorySection: {
 		margin: 10,
+		width: Dimensions.get('screen').width * 0.9,
 	},
 	badgesContainer: {
 		flexDirection: 'row',
+		flexWrap: 'wrap',
 	},
 });
 
