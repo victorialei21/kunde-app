@@ -1,17 +1,29 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import InformationRect from '../../components/InformationRect';
 import InformationBox from '../../components/InformationBox';
 import { AFFIRMATIONS, TASKS, PILLS } from '../../data/dummy-data';
 import Colors from '../../constants/Colors';
+import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const MainScreen = (props) => {
 	const randomInt = Math.floor(Math.random() * 18);
 
-	const badges = () => {
-		return <View></View>;
+	const badgeContent = () => {
+		return (
+			<View style={styles.badgeContainer}>
+				<DefaultHeaderText style={{ fontSize: 15 }}>
+					{' '}
+					Last Badge Earned:
+				</DefaultHeaderText>
+				<Image
+					source={require('../../assets/MoodProgression1.png')}
+					style={styles.badge}
+				/>
+			</View>
+		);
 	};
 
 	return (
@@ -58,6 +70,7 @@ const MainScreen = (props) => {
 						content={
 							'Click to track your progress and work toward earning more badges!'
 						}
+						badges={badgeContent()}
 						onSelect={() => {
 							props.navigation.navigate('Badges');
 						}}
@@ -91,6 +104,15 @@ const styles = StyleSheet.create({
 	},
 	boxContainer: {
 		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	badge: {
+		height: 70,
+		width: 70,
+	},
+	badgeContainer: {
+		flexDirection: 'row',
+		justifyContent: 'center',
 		alignItems: 'center',
 	},
 });

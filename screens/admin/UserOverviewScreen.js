@@ -4,16 +4,10 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import UserCard from '../../components/UserCard';
 import Colors from '../../constants/Colors';
 import { USERS } from '../../data/dummy-data';
-import DefaultHeaderText from '../../components/DefaultHeaderText';
 
 const UserOverviewScreen = (props) => {
 	return (
 		<View style={styles.screen}>
-			<View style={styles.headerContainer}>
-				<DefaultHeaderText style={{ fontSize: 25 }}>
-					Patient Feed
-				</DefaultHeaderText>
-			</View>
 			<View style={styles.listContainer}>
 				<FlatList
 					data={USERS}
@@ -42,11 +36,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: Colors.background,
-	},
-	headerContainer: {
-		flex: 1,
-		marginTop: 10,
-		justifyContent: 'center',
 	},
 	listContainer: {
 		flex: 8,

@@ -173,7 +173,6 @@ function UserTabNavigator() {
 						),
 					}}
 				/>
-
 				<UserTab.Screen
 					name='Settings'
 					component={UserSettingsStackScreen}
